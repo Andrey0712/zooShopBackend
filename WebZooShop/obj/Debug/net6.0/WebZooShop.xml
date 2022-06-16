@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebZooShop</name>
+    </assembly>
+    <members>
+        <member name="M:WebZooShop.Controllers.AccountController.Register(WebZooShop.Model.RegisterViewModel)">
+            <summary>
+            Реєстрація юзера
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає токен авторизації</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Register user</response>
+            <response code="400">Register has missing/invalid values</response>
+            <response code="500">Oops! Can't Register right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.AccountController.Users">
+            <summary>
+            Лист юзерів
+            </summary>
+            <returns>Повертає list</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List users</response>
+            <response code="400">List users has missing/invalid values</response>
+            <response code="500">Oops! Can't get  users list right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.AccountController.Login(WebZooShop.Model.LoginUserModel)">
+            <summary>
+            Вхід на сайт
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає токен авторизації</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Login user</response>
+            <response code="400">Login has missing/invalid values</response>
+            <response code="500">Oops! Can't create your login right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.AccountController.Delete(WebZooShop.Model.UserDelViewModel)">
+            <summary>
+            Видалення юзера
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає message</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Delete user</response>
+            <response code="400">Delete user has missing/invalid values</response>
+            <response code="500">Oops! Can't delete user now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.AccountController.EditUser(WebZooShop.Model.UserEditViewModel)">
+            <summary>
+            Редагування юзера
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає токен авторизації</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Edit user</response>
+            <response code="400">Edit user has missing/invalid values</response>
+            <response code="500">Oops! Can't edit user now</response>
+            
+        </member>
+        <member name="M:WebZooShop.Controllers.AccountController.GoogleExternalLoginAsync(WebZooShop.Model.ExternalLoginRequest)">
+            <summary>
+            Логуванн юзера через Google
+            </summary>
+            <param name="request">Понель із даними</param>
+            <returns>Повертає токен авторизації</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Login user</response>
+            <response code="400">Login has missing/invalid values</response>
+            <response code="500">Oops! Can't create your login right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.CategoryController.Category">
+            <summary>
+            Список категорій
+            </summary>
+            <returns>Повертає лист</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List categorys</response>
+            <response code="400">List categorys has missing/invalid values</response>
+            <response code="500">Oops! Can't get  categorys list right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.CategoryController.Create(WebZooShop.Model.CreateCategoryViewModel)">
+            <summary>
+            Додати категорію
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає id</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Add category</response>
+            <response code="400">Add category has missing/invalid values</response>
+            <response code="500">Oops! Can't add category right now</response>
+            
+        </member>
+        <member name="M:WebZooShop.Controllers.CategoryController.Delete(WebZooShop.Model.CategoryDelViewModel)">
+            <summary>
+            Видалення категорії
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає messege</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Delete category</response>
+            <response code="400">Delete category has missing/invalid values</response>
+            <response code="500">Oops! Can't delete category now</response>
+            
+        </member>
+        <member name="M:WebZooShop.Controllers.ProductController.Category">
+            <summary>
+            Список продуктів
+            </summary>
+            <returns>Повертає лист</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List products</response>
+            <response code="400">List products has missing/invalid values</response>
+            <response code="500">Oops! Can't get  products list right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.ProductController.GetData(System.Int32)">
+            <summary>
+            Продукт по ID
+            </summary>
+            <param name="id">Понель із даними</param>
+            <returns>Повертає родукт по id</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Get product</response>
+            <response code="400">Get product has missing/invalid values</response>
+            <response code="500">Oops! Can't get  product  right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.ProductController.Delete(WebZooShop.Model.ProductDelViewModel)">
+            <summary>
+            Видалення продукту
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає повідомлення</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Delete product</response>
+            <response code="400">Delete product has missing/invalid values</response>
+            <response code="500">Oops! Can't delete product now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.ProductController.Add(WebZooShop.Model.ProductAddViewModel)">
+            <summary>
+            Додати продукт
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає ok</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Add product</response>
+            <response code="400">Add product has missing/invalid values</response>
+            <response code="500">Oops! Can't add product right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.ProductController.Edit(WebZooShop.Model.ProductImageToEdit)">
+            <summary>
+            Редагування продукту
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає message</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Edit product</response>
+            <response code="400">Edit product has missing/invalid values</response>
+            <response code="500">Oops! Can't edit product now</response>
+        </member>
+        <member name="P:WebZooShop.Model.LoginUserModel.Email">
+            <summary>
+            Емейл користувача
+            </summary>
+            <example>gg@gg.gg</example>
+        </member>
+        <member name="P:WebZooShop.Model.LoginUserModel.Password">
+            <summary>
+            Пароль користувача
+            </summary>
+            <example>12345</example>
+        </member>
+        <member name="P:WebZooShop.Model.TokenResponceViewModel.token">
+            <summary>
+            token
+            </summary>
+            <example>eyJpZCI6IjEzMzciLCJ1c2VybmFtZSI6ImJpem9uZSIsImlhdCI6MTU5NDIwOTYwMCwicm9sZSI6InVzZXIifQ</example>
+        </member>
+        <member name="T:WebZooShop.Model.ProductAddViewModel">
+            <summary>
+            Модель для створення товару
+            </summary>
+        </member>
+        <member name="T:WebZooShop.Model.ProductImageToEdit">
+            <summary>
+            Модель для зміни товару
+            </summary>
+        </member>
+    </members>
+</doc>

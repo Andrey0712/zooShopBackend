@@ -1,0 +1,277 @@
+2022-06-16T15:01:10.2637948+03:00  [INF] Seeding Databases (1466a039)
+2022-06-16T15:01:11.9046664+03:00  [WRN] The foreign key property '"AppUserRole"."RoleId1"' was created in shadow state because a conflicting property with the simple name '"RoleId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:01:11.9053967+03:00  [WRN] The foreign key property '"AppUserRole"."UserId1"' was created in shadow state because a conflicting property with the simple name '"UserId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:01:12.3013657+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-06-16T15:01:14.9248060+03:00  [INF] Executed DbCommand ("254"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:01:15.9484252+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:01:16.1128196+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-06-16T15:01:16.1481141+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-06-16T15:01:16.6644260+03:00  [INF] Executed DbCommand ("142"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-06-16T15:01:17.0160062+03:00  [INF] Executed DbCommand ("174"ms) [Parameters=["@__normalizedName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:17.4628457+03:00  [INF] Executed DbCommand ("151"ms) [Parameters=["@p0='?', @p1='?', @p2='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"AspNetRoles\" (\"ConcurrencyStamp\", \"Name\", \"NormalizedName\")
+VALUES (@p0, @p1, @p2)
+RETURNING \"Id\";" (0723d8ff)
+2022-06-16T15:01:17.8165208+03:00  [INF] Executed DbCommand ("142"ms) [Parameters=["@__normalizedName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:17.9685315+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=["@p0='?', @p1='?', @p2='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"AspNetRoles\" (\"ConcurrencyStamp\", \"Name\", \"NormalizedName\")
+VALUES (@p0, @p1, @p2)
+RETURNING \"Id\";" (0723d8ff)
+2022-06-16T15:01:18.2601849+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-06-16T15:01:18.4789557+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:18.7381665+03:00  [INF] Executed DbCommand ("153"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?', @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (DbType = Boolean), @p13='?', @p14='?', @p15='?' (DbType = Boolean), @p16='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"AspNetUsers\" (\"AccessFailedCount\", \"ConcurrencyStamp\", \"Email\", \"EmailConfirmed\", \"FirstName\", \"LockoutEnabled\", \"LockoutEnd\", \"NormalizedEmail\", \"NormalizedUserName\", \"PasswordHash\", \"Phone\", \"PhoneNumber\", \"PhoneNumberConfirmed\", \"SecondName\", \"SecurityStamp\", \"TwoFactorEnabled\", \"UserName\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16)
+RETURNING \"Id\";" (0723d8ff)
+2022-06-16T15:01:19.0447510+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=["@__normalizedRoleName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedRoleName_0
+LIMIT 2" (0723d8ff)
+2022-06-16T15:01:19.2251531+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=["@__p_0='?' (DbType = Int64), @__p_1='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"UserId\", a.\"RoleId\", a.\"RoleId1\", a.\"UserId1\"
+FROM \"AspNetUserRoles\" AS a
+WHERE (a.\"UserId\" = @__p_0) AND (a.\"RoleId\" = @__p_1)
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:19.3754480+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=["@__normalizedRoleName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedRoleName_0
+LIMIT 2" (0723d8ff)
+2022-06-16T15:01:19.5515440+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:19.7203526+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p21='?' (DbType = Int64), @p4='?' (DbType = Int32), @p5='?', @p22='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTime), @p11='?', @p12='?', @p13='?', @p14='?', @p15='?', @p16='?' (DbType = Boolean), @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"AspNetUserRoles\" (\"RoleId\", \"UserId\", \"RoleId1\", \"UserId1\")
+VALUES (@p0, @p1, @p2, @p3);
+UPDATE \"AspNetUsers\" SET \"AccessFailedCount\" = @p4, \"ConcurrencyStamp\" = @p5, \"Email\" = @p6, \"EmailConfirmed\" = @p7, \"FirstName\" = @p8, \"LockoutEnabled\" = @p9, \"LockoutEnd\" = @p10, \"NormalizedEmail\" = @p11, \"NormalizedUserName\" = @p12, \"PasswordHash\" = @p13, \"Phone\" = @p14, \"PhoneNumber\" = @p15, \"PhoneNumberConfirmed\" = @p16, \"SecondName\" = @p17, \"SecurityStamp\" = @p18, \"TwoFactorEnabled\" = @p19, \"UserName\" = @p20
+WHERE \"Id\" = @p21 AND \"ConcurrencyStamp\" = @p22;" (0723d8ff)
+2022-06-16T15:01:20.0106651+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-06-16T15:01:20.1952979+03:00  [INF] Executed DbCommand ("150"ms) [Parameters=["@p0='?', @p1='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"tblCategory\" (\"Name\")
+VALUES (@p0)
+RETURNING \"Id\";
+INSERT INTO \"tblCategory\" (\"Name\")
+VALUES (@p1)
+RETURNING \"Id\";" (0723d8ff)
+2022-06-16T15:01:20.5000917+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-06-16T15:01:20.5063084+03:00  [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results. (f43d926b)
+2022-06-16T15:01:20.6574939+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"Name\"
+FROM \"tblCategory\" AS t
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:20.8803731+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=["@p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"tblProducts\" (\"DateCreate\", \"Description\", \"Name\", \"Price\", \"ProductCategoryId\", \"StartPhoto\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING \"Id\";" (0723d8ff)
+2022-06-16T15:01:21.0358626+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=["@p6='?', @p7='?' (DbType = Int32), @p8='?', @p9='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"btlProductImages\" (\"Name\", \"ProductId\")
+VALUES (@p6, @p7)
+RETURNING \"Id\";
+INSERT INTO \"btlProductImages\" (\"Name\", \"ProductId\")
+VALUES (@p8, @p9)
+RETURNING \"Id\";" (0723d8ff)
+2022-06-16T15:01:21.3267557+03:00  [INF] Executed DbCommand ("142"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblUserProduct\" AS t)" (0723d8ff)
+2022-06-16T15:01:21.3291780+03:00  [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results. (f43d926b)
+2022-06-16T15:01:21.4827369+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:21.4842941+03:00  [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results. (f43d926b)
+2022-06-16T15:01:21.6335818+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreate\", t.\"Description\", t.\"Name\", t.\"Price\", t.\"ProductCategoryId\", t.\"StartPhoto\"
+FROM \"tblProducts\" AS t
+LIMIT 1" (0723d8ff)
+2022-06-16T15:01:21.7889560+03:00  [INF] Executed DbCommand ("142"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"tblUserProduct\" (\"ProductId\", \"UserId\")
+VALUES (@p0, @p1);" (0723d8ff)
+2022-06-16T15:01:22.2272381+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-06-16T15:01:22.2274470+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-06-16T15:01:22.2275262+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-06-16T15:01:22.2276345+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2022-06-16T15:04:04.8895085+03:00 0HMIFHVN7LVB6:00000002 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-06-16T15:04:05.0958185+03:00 0HMIFHVN7LVB6:00000002 [INF] Executed DbCommand ("145"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a" (0723d8ff)
+2022-06-16T15:07:46.4853640+03:00  [INF] Seeding Databases (1466a039)
+2022-06-16T15:07:47.8438159+03:00  [WRN] The foreign key property '"AppUserRole"."RoleId1"' was created in shadow state because a conflicting property with the simple name '"RoleId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:07:47.8446041+03:00  [WRN] The foreign key property '"AppUserRole"."UserId1"' was created in shadow state because a conflicting property with the simple name '"UserId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:07:48.1872339+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-06-16T15:07:50.7693949+03:00  [INF] Executed DbCommand ("253"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:07:51.7887257+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:07:51.9527319+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-06-16T15:07:51.9853082+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-06-16T15:07:52.4885496+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-06-16T15:07:52.6385631+03:00  [INF] Executed DbCommand ("142"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-06-16T15:07:52.7849222+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-06-16T15:07:52.9354595+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-06-16T15:07:53.0817584+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblUserProduct\" AS t)" (0723d8ff)
+2022-06-16T15:07:53.2036563+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-06-16T15:07:53.2038701+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-06-16T15:07:53.2039495+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-06-16T15:07:53.2045895+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2022-06-16T15:25:33.2194555+03:00  [INF] Seeding Databases (1466a039)
+2022-06-16T15:25:34.6853752+03:00  [WRN] The foreign key property '"AppUserRole"."RoleId1"' was created in shadow state because a conflicting property with the simple name '"RoleId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:25:34.6861503+03:00  [WRN] The foreign key property '"AppUserRole"."UserId1"' was created in shadow state because a conflicting property with the simple name '"UserId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:25:35.0649124+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-06-16T15:25:37.6756084+03:00  [INF] Executed DbCommand ("248"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:25:38.7502191+03:00  [INF] Executed DbCommand ("147"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:25:38.9207238+03:00  [INF] Executed DbCommand ("151"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-06-16T15:25:38.9543395+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-06-16T15:25:39.4634598+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-06-16T15:25:39.6148163+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-06-16T15:25:39.7614718+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-06-16T15:25:39.9110322+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-06-16T15:25:40.0599972+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblUserProduct\" AS t)" (0723d8ff)
+2022-06-16T15:25:40.1823178+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-06-16T15:25:40.1825505+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-06-16T15:25:40.1830060+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-06-16T15:25:40.1832593+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2022-06-16T15:40:47.8932282+03:00  [INF] Seeding Databases (1466a039)
+2022-06-16T15:40:49.3211629+03:00  [WRN] The foreign key property '"AppUserRole"."RoleId1"' was created in shadow state because a conflicting property with the simple name '"RoleId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:40:49.3233353+03:00  [WRN] The foreign key property '"AppUserRole"."UserId1"' was created in shadow state because a conflicting property with the simple name '"UserId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:40:49.7035152+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-06-16T15:40:52.3162613+03:00  [INF] Executed DbCommand ("248"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:40:53.4143076+03:00  [INF] Executed DbCommand ("190"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:40:53.5795588+03:00  [INF] Executed DbCommand ("148"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-06-16T15:40:53.6142385+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-06-16T15:40:54.1269761+03:00  [INF] Executed DbCommand ("149"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-06-16T15:40:54.2792124+03:00  [INF] Executed DbCommand ("145"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-06-16T15:40:54.4272828+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-06-16T15:40:54.5873365+03:00  [INF] Executed DbCommand ("155"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-06-16T15:40:54.7385151+03:00  [INF] Executed DbCommand ("147"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblUserProduct\" AS t)" (0723d8ff)
+2022-06-16T15:40:54.8638383+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-06-16T15:40:54.8640461+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-06-16T15:40:54.8645153+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-06-16T15:40:54.8647734+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2022-06-16T15:58:38.8609657+03:00  [INF] Seeding Databases (1466a039)
+2022-06-16T15:58:40.2584630+03:00  [WRN] The foreign key property '"AppUserRole"."RoleId1"' was created in shadow state because a conflicting property with the simple name '"RoleId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:58:40.2592007+03:00  [WRN] The foreign key property '"AppUserRole"."UserId1"' was created in shadow state because a conflicting property with the simple name '"UserId"' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. (94de1fc5)
+2022-06-16T15:58:40.6056500+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-06-16T15:58:43.2405571+03:00  [INF] Executed DbCommand ("246"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:58:44.3120162+03:00  [INF] Executed DbCommand ("150"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-06-16T15:58:44.4739213+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-06-16T15:58:44.5067672+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-06-16T15:58:45.0111105+03:00  [INF] Executed DbCommand ("144"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-06-16T15:58:45.1647461+03:00  [INF] Executed DbCommand ("146"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-06-16T15:58:45.3112354+03:00  [INF] Executed DbCommand ("143"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-06-16T15:58:45.4808201+03:00  [INF] Executed DbCommand ("164"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-06-16T15:58:45.6325542+03:00  [INF] Executed DbCommand ("148"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblUserProduct\" AS t)" (0723d8ff)
+2022-06-16T15:58:45.7593423+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-06-16T15:58:45.7595679+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-06-16T15:58:45.7596505+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-06-16T15:58:45.7600335+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
