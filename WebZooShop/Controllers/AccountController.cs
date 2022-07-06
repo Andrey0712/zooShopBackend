@@ -60,7 +60,7 @@ namespace WebZooShop.Controllers
         [Route("register")]
         public async Task<IActionResult> Register([FromForm] RegisterViewModel model)
         {
-            string fileName = String.Empty;
+            //string fileName = String.Empty;
             var rez = _roleManager.CreateAsync(new AppRole
             {
                 Name = Roles.User
@@ -240,6 +240,7 @@ namespace WebZooShop.Controllers
                         UserName = payload.Email,
                         FirstName = payload.GivenName,
                         SecondName = payload.FamilyName
+                        //Phone="+38000000000"
                     };
                     var resultCreate = await _userManager.CreateAsync(user);
                     if (!resultCreate.Succeeded)

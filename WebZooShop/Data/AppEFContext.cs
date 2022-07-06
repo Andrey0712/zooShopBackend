@@ -14,10 +14,12 @@ namespace WebZooShop.Data
             base(options)
         {
         }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<UserProduct> UserProduct { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; }
+        public DbSet<ProductEntity> Products { get; set; }
+        //public DbSet<ProductImageEntity> ProductImages { get; set; }
+        public DbSet<CartEntity> Carts { get; set; }
+        
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -37,21 +39,7 @@ namespace WebZooShop.Data
                     .IsRequired();
             });
 
-            base.OnModelCreating(builder);
-            builder.Entity<UserProduct>(userProd =>
-            {
-                userProd.HasKey(tp => new { tp.UserId, tp.ProductId });
-
-                userProd.HasOne(tp => tp.User)
-                    .WithMany(t => t.UserProduct)
-                    .HasForeignKey(tp => tp.UserId)
-                    .IsRequired();
-
-                userProd.HasOne(tp => tp.Product)
-                    .WithMany(t => t.UserProduct)
-                    .HasForeignKey(tp => tp.ProductId)
-                    .IsRequired();
-            });
+           
         }
     }
 }

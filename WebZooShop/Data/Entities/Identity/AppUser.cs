@@ -10,8 +10,9 @@ namespace WebZooShop.Data.Entities.Identity
         [StringLength(100)]
         public string SecondName { get; set; }
         [StringLength(20)]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         public virtual ICollection<AppUserRole> UserRoles { get; set; }
-        public virtual ICollection<UserProduct> UserProduct { get; set; }
-    }
+        public virtual ICollection<CartEntity>? CartEntities { get; set; }
+    
+}
 }

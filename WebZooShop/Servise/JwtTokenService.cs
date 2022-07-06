@@ -44,6 +44,7 @@ namespace WebZooShop.Servise
             new Claim("phone", user.Phone)
 
         };
+            
             if (roles.Any())
             {
                 foreach (var role in roles)

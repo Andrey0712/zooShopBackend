@@ -3,6 +3,8 @@ using System.Globalization;
 using WebZooShop.Data.Entities;
 using WebZooShop.Data.Entities.Identity;
 using WebZooShop.Model;
+using static WebZooShop.Model.CartViewModels;
+
 
 namespace WebZooShop.Mapper
 {
@@ -35,29 +37,44 @@ namespace WebZooShop.Mapper
 
 
             //мепери для категорії
-            CreateMap<CreateCategoryViewModel, ProductCategory>();
-            CreateMap<ProductCategory, CategoryItemViewModel>();
+            CreateMap<CreateCategoryViewModel, CategoryEntity>();
+            CreateMap<CategoryEntity, CategoryItemViewModel>();
 
             //мепери для продукт
-            CreateMap<ProductAddViewModel, Product>()
-                .ForMember(x => x.ProductImages, opt => opt.Ignore())
-                .ForMember(x => x.DateCreate, opt => opt.MapFrom(x =>
+            CreateMap<ProductAddViewModel, ProductEntity>()
+                //.ForMember(x => x.ProductImages, opt => opt.Ignore())
+                .ForMember(x => x.DateCreated, opt => opt.MapFrom(x =>
                     DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)))
-                
-                .ForMember(x => x.StartPhoto, opt => opt.Ignore())
-                .ForMember(x => x.ProductCategoryId, opt => opt.MapFrom(opt => opt.ProductCategoryId))
-                .ForMember(x => x.Name, opt => opt.MapFrom(opt => opt.Name))
-                .ForMember(x => x.Price, opt => opt.MapFrom(opt => opt.Price))
-                .ForMember(x => x.Description, opt => opt.MapFrom(opt => opt.Description));
+
+               .ForMember(x => x.StartPhoto, opt => opt.Ignore())
+               .ForMember(x => x.CategoryId, opt => opt.MapFrom(opt => opt.CategoryId))
+               .ForMember(x => x.Name, opt => opt.MapFrom(opt => opt.Name))
+               .ForMember(x => x.Price, opt => opt.MapFrom(opt => opt.Price))
+               .ForMember(x => x.Description, opt => opt.MapFrom(opt => opt.Description));
 
 
 
-            CreateMap<Product, ProductItemViewModel>()
-               
+            /*CreateMap<ProductEntity, ProductItemViewModel>()
+
                .ForMember(x => x.Price, opt => opt.MapFrom(x => x.Price.ToString(cultureInfo)))
-               .ForMember(x => x.StartPhoto, opt => opt.MapFrom(x => $"/uploads/{x.StartPhoto}"));
+               .ForMember(x => x.StartPhoto, opt => opt.MapFrom(x => $"/uploads/{x.StartPhoto}"));*/
+
+            CreateMap<ProductEntity, ProductItemViewModel>()
+               .ForMember(x => x.Image, opt => opt.MapFrom(x => $"uploads/{x.StartPhoto}"))
+               .ForMember(x => x.Category, opt => opt.MapFrom(x =>x.Category.Name))
+                //.ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => "Очікуєм"))
+               .ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => "У наявності"))
+               .ForMember(x => x.Rating, opt => opt.MapFrom(x => new Random().Next(1, 5)));
+
+            CreateMap<CartAddViewModel, CartEntity>();
+
+            CreateMap<CartEntity, CartItemViewModel>()
+               .ForMember(x => x.ProductName, opt => opt.MapFrom(x => x.Product.Name))
+               .ForMember(x => x.ProductImage, opt => opt.MapFrom(x => $"uploads/{x.Product.StartPhoto}"))
+               .ForMember(x => x.ProductPrice, opt => opt.MapFrom(x => x.Product.Price));
 
 
+            
 
         }
 

@@ -34,7 +34,7 @@ namespace WebZooShop.Controllers
         public async Task<IActionResult> Category()
         {
             Thread.Sleep(2000);
-            var list = await _context.ProductCategories.Select(x => _mapper.Map<CategoryItemViewModel>(x))
+            var list = await _context.Categories.Select(x => _mapper.Map<CategoryItemViewModel>(x))
                 .AsQueryable().ToListAsync();
 
             return Ok(list);
@@ -54,8 +54,8 @@ namespace WebZooShop.Controllers
         //[Authorize]
         public IActionResult Create(CreateCategoryViewModel model)
         {
-            ProductCategory category = _mapper.Map<ProductCategory>(model);
-            _context.ProductCategories.Add(category);
+            CategoryEntity category = _mapper.Map<CategoryEntity>(model);
+            _context.Categories.Add(category);
             _context.SaveChanges();
 
             return Ok(new { id = category.Id });
@@ -76,13 +76,13 @@ namespace WebZooShop.Controllers
         public IActionResult Delete([FromBody] CategoryDelViewModel model)
         {
 
-            var res = _context.ProductCategories.FirstOrDefault(x => x.Id == model.Id);
+            var res = _context.Categories.FirstOrDefault(x => x.Id == model.Id);
             if (res == null)
             {
                 return BadRequest(new { message = "Check id!" });
             }
 
-            _context.ProductCategories.Remove(res);
+            _context.Categories.Remove(res);
             _context.SaveChanges();
             return Ok(new { message = "Category deleted" });
         }

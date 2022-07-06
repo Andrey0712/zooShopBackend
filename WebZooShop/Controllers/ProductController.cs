@@ -29,16 +29,26 @@ namespace WebZooShop.Controllers
         /// <response code="200">List products</response>
         /// <response code="400">List products has missing/invalid values</response>
         /// <response code="500">Oops! Can't get  products list right now</response>
-        
+
         [HttpGet]
         [Route("list")]
-        public async Task<IActionResult> Category()
+        public async Task<IActionResult> List()
         {
-            Thread.Sleep(2000);
-            var list = await _context.Products.Select(x => _mapper.Map<ProductItemViewModel>(x))
-                .AsQueryable().ToListAsync();
-
-            return Ok(list);
+            try
+            {
+                Thread.Sleep(2000);
+                var model = await _context.Products
+                     .Include(x => x.Category)
+                    .Select(x => _mapper.Map<ProductItemViewModel>(x)).ToListAsync();
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    invalid = ex.Message
+                });
+            }
         }
 
         /// <summary>
@@ -50,13 +60,13 @@ namespace WebZooShop.Controllers
         /// <response code="200">Get product</response>
         /// <response code="400">Get product has missing/invalid values</response>
         /// <response code="500">Oops! Can't get  product  right now</response>
-        
+
         [HttpGet]
         [Route("get/{id}")]
         public IActionResult GetData(int id)
         {
             var cultureInfo = new CultureInfo("uk-UA");
-            var product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == id);
+            var product = _context.Products.FirstOrDefault(x => x.Id == id);
             ProductViewModelImages model = new ProductViewModelImages
             {
                 Id = product.Id,
@@ -64,11 +74,8 @@ namespace WebZooShop.Controllers
                 Price = product.Price,
                 Description = product.Description,
                 StartPhoto = product.StartPhoto,
-                DateCreate = product.DateCreate.ToString("dd.MM.yyyy HH:mm:ss"),
-                Images = product.ProductImages.Select(x => new ProductImageItemViewModel
-                {
-                    Path = x.Name
-                }).ToList()
+                DateCreate = product.DateCreated.ToString("dd.MM.yyyy HH:mm:ss"),
+                
             };
             return Ok(model);
         }
@@ -115,7 +122,7 @@ namespace WebZooShop.Controllers
         {
             try
             {
-                List<string> fileNames = new List<string>();
+               /* List<string> fileNames = new List<string>();
                 foreach (var item in model.Images)
                 {
                     string fileName = "";
@@ -131,10 +138,10 @@ namespace WebZooShop.Controllers
                         }
                         fileNames.Add(fileName);
                     }
-                }
+                }*/
 
                 string startFoto = String.Empty;
-                var product = _mapper.Map<Product>(model);
+                var product = _mapper.Map<ProductEntity>(model);
 
                 if (model.StartPhoto != null)
                 {
@@ -152,16 +159,16 @@ namespace WebZooShop.Controllers
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
 
-                foreach (var img in fileNames)
+                /*foreach (var img in fileNames)
                 {
-                    ProductImage productImage = new ProductImage()
+                    ProductImageEntity productImage = new ProductImageEntity()
                     {
                         Name = img,
                         ProductId = product.Id
                     };
                     _context.ProductImages.Add(productImage);
                     _context.SaveChanges();
-                }
+                }*/
                 return Ok();
             }
             catch (Exception ex)
@@ -191,7 +198,7 @@ namespace WebZooShop.Controllers
 
             if (ModelState.IsValid)
             {
-                var itemProd = _context.Products.Include(i => i.ProductImages).FirstOrDefault(x => x.Id == model.Id);
+                var itemProd = _context.Products.FirstOrDefault(x => x.Id == model.Id);
                 string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
 
                 itemProd.Id = model.Id;
@@ -220,7 +227,7 @@ namespace WebZooShop.Controllers
                     itemProd.StartPhoto = randomFilename;
                 }
 
-                //видаляємо сторі фотки
+               /* //видаляємо сторі фотки
                 if (model.deletedImages != null)
                 {
                     foreach (var delProduct in model.deletedImages)
@@ -248,13 +255,13 @@ namespace WebZooShop.Controllers
                             newImages.CopyTo(stream);
                         }
 
-                        _context.ProductImages.Add(new Data.Entities.ProductImage
+                        _context.ProductImages.Add(new Data.Entities.ProductImageEntity
                         {
                             Name = fileName,
                             ProductId = itemProd.Id
                         });
                     }
-                }
+                }*/
 
                 _context.SaveChanges();
 
@@ -265,3 +272,4 @@ namespace WebZooShop.Controllers
         }
     }
 }
+

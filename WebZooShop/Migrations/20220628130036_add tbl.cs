@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WebZooShop.Migrations
 {
-    public partial class olltbl : Migration
+    public partial class addtbl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -134,9 +134,7 @@ namespace WebZooShop.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<long>(type: "bigint", nullable: false),
-                    RoleId = table.Column<long>(type: "bigint", nullable: false),
-                    UserId1 = table.Column<long>(type: "bigint", nullable: true),
-                    RoleId1 = table.Column<long>(type: "bigint", nullable: true)
+                    RoleId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -148,21 +146,11 @@ namespace WebZooShop.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId1",
-                        column: x => x.RoleId1,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -191,62 +179,48 @@ namespace WebZooShop.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Price = table.Column<int>(type: "integer", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "character varying(4000)", maxLength: 4000, nullable: false),
-                    StartPhoto = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: true),
-                    DateCreate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ProductCategoryId = table.Column<int>(type: "integer", nullable: false)
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Price = table.Column<int>(type: "integer", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    StartPhoto = table.Column<string>(type: "text", nullable: true),
+                    Priority = table.Column<int>(type: "integer", nullable: false),
+                    CategoryId = table.Column<int>(type: "integer", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tblProducts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_tblProducts_tblCategory_ProductCategoryId",
-                        column: x => x.ProductCategoryId,
+                        name: "FK_tblProducts_tblCategory_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "tblCategory",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "btlProductImages",
+                name: "tblCartEntities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
-                    ProductId = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_btlProductImages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_btlProductImages_tblProducts_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "tblProducts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "tblUserProduct",
-                columns: table => new
-                {
+                    Quantity = table.Column<int>(type: "integer", nullable: false),
                     UserId = table.Column<long>(type: "bigint", nullable: false),
-                    ProductId = table.Column<int>(type: "integer", nullable: false)
+                    ProductId = table.Column<int>(type: "integer", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblUserProduct", x => new { x.UserId, x.ProductId });
+                    table.PrimaryKey("PK_tblCartEntities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_tblUserProduct_AspNetUsers_UserId",
+                        name: "FK_tblCartEntities_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_tblUserProduct_tblProducts_ProductId",
+                        name: "FK_tblCartEntities_tblProducts_ProductId",
                         column: x => x.ProductId,
                         principalTable: "tblProducts",
                         principalColumn: "Id",
@@ -280,16 +254,6 @@ namespace WebZooShop.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_RoleId1",
-                table: "AspNetUserRoles",
-                column: "RoleId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_UserId1",
-                table: "AspNetUserRoles",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
@@ -301,19 +265,19 @@ namespace WebZooShop.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_btlProductImages_ProductId",
-                table: "btlProductImages",
+                name: "IX_tblCartEntities_ProductId",
+                table: "tblCartEntities",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_tblProducts_ProductCategoryId",
+                name: "IX_tblCartEntities_UserId",
+                table: "tblCartEntities",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tblProducts_CategoryId",
                 table: "tblProducts",
-                column: "ProductCategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_tblUserProduct_ProductId",
-                table: "tblUserProduct",
-                column: "ProductId");
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -334,10 +298,7 @@ namespace WebZooShop.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "btlProductImages");
-
-            migrationBuilder.DropTable(
-                name: "tblUserProduct");
+                name: "tblCartEntities");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

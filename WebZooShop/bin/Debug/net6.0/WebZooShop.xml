@@ -104,7 +104,7 @@
             <response code="500">Oops! Can't delete category now</response>
             
         </member>
-        <member name="M:WebZooShop.Controllers.ProductController.Category">
+        <member name="M:WebZooShop.Controllers.ProductController.List">
             <summary>
             Список продуктів
             </summary>
@@ -157,6 +157,21 @@
             <response code="200">Edit product</response>
             <response code="400">Edit product has missing/invalid values</response>
             <response code="500">Oops! Can't edit product now</response>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.CartEntity.Quantity">
+            <summary>
+            Кількість товару, який ми замовили
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.CartEntity.UserId">
+            <summary>
+            Користувач який змовив
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.CartEntity.ProductId">
+            <summary>
+            Продукт, який замовив
+            </summary>
         </member>
         <member name="P:WebZooShop.Model.LoginUserModel.Email">
             <summary>

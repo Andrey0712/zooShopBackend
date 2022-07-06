@@ -110,6 +110,56 @@ namespace WebZooShop.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("WebZooShop.Data.Entities.CartEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("tblCartEntities");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.CategoryEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tblCategory");
+                });
+
             modelBuilder.Entity("WebZooShop.Data.Entities.Identity.AppRole", b =>
                 {
                     b.Property<long>("Id")
@@ -226,39 +276,14 @@ namespace WebZooShop.Migrations
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("RoleId1")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("UserId1")
-                        .HasColumnType("bigint");
-
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("RoleId1");
-
-                    b.HasIndex("UserId1");
-
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("WebZooShop.Data.Entities.Identity.UserProduct", b =>
-                {
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("UserId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("tblUserProduct");
-                });
-
-            modelBuilder.Entity("WebZooShop.Data.Entities.Product", b =>
+            modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -266,76 +291,37 @@ namespace WebZooShop.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCreate")
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(4000)
-                        .HasColumnType("character varying(4000)");
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<int>("Price")
-                        .HasMaxLength(100)
                         .HasColumnType("integer");
 
-                    b.Property<int>("ProductCategoryId")
+                    b.Property<int>("Priority")
                         .HasColumnType("integer");
 
                     b.Property<string>("StartPhoto")
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("tblProducts");
-                });
-
-            modelBuilder.Entity("WebZooShop.Data.Entities.ProductCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("tblCategory");
-                });
-
-            modelBuilder.Entity("WebZooShop.Data.Entities.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("btlProductImages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
@@ -374,43 +360,16 @@ namespace WebZooShop.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebZooShop.Data.Entities.Identity.AppUserRole", b =>
+            modelBuilder.Entity("WebZooShop.Data.Entities.CartEntity", b =>
                 {
-                    b.HasOne("WebZooShop.Data.Entities.Identity.AppRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebZooShop.Data.Entities.Identity.AppRole", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId1");
-
-                    b.HasOne("WebZooShop.Data.Entities.Identity.AppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebZooShop.Data.Entities.Identity.AppUser", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId1");
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WebZooShop.Data.Entities.Identity.UserProduct", b =>
-                {
-                    b.HasOne("WebZooShop.Data.Entities.Product", "Product")
-                        .WithMany("UserProduct")
+                    b.HasOne("WebZooShop.Data.Entities.ProductEntity", "Product")
+                        .WithMany("CartEntities")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebZooShop.Data.Entities.Identity.AppUser", "User")
-                        .WithMany("UserProduct")
+                        .WithMany("CartEntities")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -420,25 +379,36 @@ namespace WebZooShop.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("WebZooShop.Data.Entities.Product", b =>
+            modelBuilder.Entity("WebZooShop.Data.Entities.Identity.AppUserRole", b =>
                 {
-                    b.HasOne("WebZooShop.Data.Entities.ProductCategory", "ProductCategory")
-                        .WithMany("Product")
-                        .HasForeignKey("ProductCategoryId")
+                    b.HasOne("WebZooShop.Data.Entities.Identity.AppRole", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ProductCategory");
+                    b.HasOne("WebZooShop.Data.Entities.Identity.AppUser", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("WebZooShop.Data.Entities.ProductImage", b =>
+            modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
-                    b.HasOne("WebZooShop.Data.Entities.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("WebZooShop.Data.Entities.CategoryEntity", "Category")
+                        .WithMany("Product")
+                        .HasForeignKey("CategoryId");
 
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.CategoryEntity", b =>
+                {
                     b.Navigation("Product");
                 });
 
@@ -449,21 +419,14 @@ namespace WebZooShop.Migrations
 
             modelBuilder.Entity("WebZooShop.Data.Entities.Identity.AppUser", b =>
                 {
-                    b.Navigation("UserProduct");
+                    b.Navigation("CartEntities");
 
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("WebZooShop.Data.Entities.Product", b =>
+            modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
-                    b.Navigation("ProductImages");
-
-                    b.Navigation("UserProduct");
-                });
-
-            modelBuilder.Entity("WebZooShop.Data.Entities.ProductCategory", b =>
-                {
-                    b.Navigation("Product");
+                    b.Navigation("CartEntities");
                 });
 #pragma warning restore 612, 618
         }

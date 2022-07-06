@@ -22,7 +22,7 @@ namespace WebZooShop.Data.Entities
                     SeedRole(services);//сидим роли
                     SeedCateory(services);
                     SeedProduct(services);
-                    SeedUserProd(services);
+                    //SeedOrderStatuses(services);
 
                 }
                 catch (Exception)
@@ -72,20 +72,60 @@ namespace WebZooShop.Data.Entities
 
         }
 
+       /* private static void SeedOrderStatuses(IServiceProvider service)
+        {
+            var context = service.GetRequiredService<AppEFContext>();
+            if (!context.OrderStatuses.Any())
+            {
+                context.OrderStatuses
+                        .Add(new OrderStatusEntity
+                        {
+                            Name = "Новий заказ"
+                        });
+                context.OrderStatuses
+                    .Add(new OrderStatusEntity
+                    {
+                        Name = "В роботі"
+                    });
+                context.OrderStatuses
+                    .Add(new OrderStatusEntity
+                    {
+                        Name = "Відправлено"
+                    });
+               
+                context.OrderStatuses
+                    .Add(new OrderStatusEntity
+                    {
+                        Name = "Відхилено"
+                    });
+                
+                context.SaveChanges();
+            }
+
+        }*/
+
         private static void SeedCateory(IServiceProvider service)
         {
             var context = service.GetRequiredService<AppEFContext>();
-            if (!context.ProductCategories.Any())
+            if (!context.Categories.Any())
             {
-                context.ProductCategories.AddRange(new List<ProductCategory>
+                context.Categories.AddRange(new List<CategoryEntity>
                 {
-                    new ProductCategory
+                    new CategoryEntity
                     {
                         Name="Корм"
                     },
-                    new ProductCategory
+                    new CategoryEntity
                     {
                         Name="Вітаміни"
+                    },
+                    new CategoryEntity
+                    {
+                        Name="Іграшки"
+                    },
+                    new CategoryEntity
+                    {
+                        Name="Ветеринарні препарати"
                     }
                 });
                 context.SaveChanges();
@@ -93,7 +133,7 @@ namespace WebZooShop.Data.Entities
 
         }
 
-        private static void SeedUserProd(IServiceProvider service)
+        /*private static void SeedUserProd(IServiceProvider service)
         {
             var context = service.GetRequiredService<AppEFContext>();
             if (!context.UserProduct.Any())
@@ -109,7 +149,7 @@ namespace WebZooShop.Data.Entities
                 context.SaveChanges();
             }
 
-        }
+        }*/
 
 
         private static void SeedProduct(IServiceProvider service)
@@ -119,31 +159,31 @@ namespace WebZooShop.Data.Entities
 
             if (!context.Products.Any())
             {
-                var productCategory = context.ProductCategories.FirstOrDefault();
+                var productCategory = context.Categories.FirstOrDefault();
 
 
-                Product product = new Product
+                ProductEntity product = new ProductEntity
                 {
-                    ProductCategoryId = productCategory.Id,
+                   CategoryId = productCategory.Id,
                     Name = "Royal Canin",
                     Description = "Корм для дорослих собак середніх порід (чия доросла вага становить від 11 до 25 кг) у віці від 12 місяців до 7 років",
-                    DateCreate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
+                    //DateCreate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                     Price = 500,
-                    StartPhoto = "https://www.paraisodemascotas.com.ar/wp-content/uploads/2019/07/medium-adult.jpg",
-                    ProductImages = new List<ProductImage>
-                    {
+                    StartPhoto = "uploads/royalStart",
+                    /*ProductImages = new List<ProductImage>
+                     {
 
-                        new ProductImage
-                        {
-                            ProductId= 1,
-                            Name ="https://zoolove.com.ua/components/com_jshopping/files/img_products/full_royal_canin_medium_adult_sostav_4_kg_zoolove_com_ua.jpg"
-                        },
-                        new ProductImage
-                        {
-                            ProductId=1,
-                            Name="https://images.paws.com/image/upload/b_rgb:FFFFFF,c_pad,dpr_3.0,f_auto,h_400,q_auto,w_400/c_pad,h_400,w_400/v1/product/I0045443_en_06?pgw=1"
-                        }
-                    }
+                         new ProductImage
+                         {
+                             ProductId= 1,
+                             Name ="https://zoolove.com.ua/components/com_jshopping/files/img_products/full_royal_canin_medium_adult_sostav_4_kg_zoolove_com_ua.jpg"
+                         },
+                         new ProductImage
+                         {
+                             ProductId=1,
+                             Name="https://images.paws.com/image/upload/b_rgb:FFFFFF,c_pad,dpr_3.0,f_auto,h_400,q_auto,w_400/c_pad,h_400,w_400/v1/product/I0045443_en_06?pgw=1"
+                         }
+                     }*/
 
                 };
 
