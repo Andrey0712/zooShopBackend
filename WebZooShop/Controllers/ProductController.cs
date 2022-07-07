@@ -52,6 +52,84 @@ namespace WebZooShop.Controllers
         }
 
         /// <summary>
+        /// Список продуктів по категоріям
+        /// </summary>
+        /// <returns>Повертає лист по категоріям</returns>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">List products</response>
+        /// <response code="400">List products has missing/invalid values</response>
+        /// <response code="500">Oops! Can't get  products list right now</response>
+        [HttpGet]
+        [Route("listByCatecory")]
+        public async Task<IActionResult> ListByCatecory(int Id)
+        {
+            try
+            {
+                Thread.Sleep(2000);
+                var model = await _context.Products
+                      .Where(x => x.CategoryId == Id)
+                    .Select(x => _mapper.Map<ProductItemViewModel>(x)).ToListAsync();
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    invalid = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Список продуктів по пошуку
+        /// </summary>
+        /// <returns>Повертає лист по запиту</returns>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">List products</response>
+        /// <response code="400">List products has missing/invalid values</response>
+        /// <response code="500">Oops! Can't get  products list right now</response>
+        [HttpGet]
+        [Route("listBySearch")]
+        public async Task<IActionResult> ListBySearch(string name)
+        {
+            try
+            {
+                Thread.Sleep(2000);
+                var query =  _context.Products
+                     .Include(c => c.Category)
+                             .AsQueryable();
+                if (!string.IsNullOrEmpty(name))
+                {
+                    query = query.Where(x => x.Name.ToLower().Contains(name.ToLower()));
+                }
+                var model = await query
+                    /*.Skip((page - 1) * pageSize)
+                    .Take(pageSize)*/
+                    .Select(x => _mapper.Map<ProductItemViewModel>(x))
+                    .ToListAsync();
+               /* int total = query.Count();
+                int pages = (int)Math.Ceiling(total / (double)pageSize);*/
+               /* return Ok(new ProductSearchResultViewModel
+                {
+                    Products = model,
+                    Total = total,
+                    CurrentPage = page,
+                    Pages = pages,
+                    CategoryName = categoryName
+
+                });*/
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    invalid = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
         /// Продукт по ID
         /// </summary>
         /// <param name="id">Понель із даними</param>

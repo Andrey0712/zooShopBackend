@@ -114,6 +114,26 @@
             <response code="400">List products has missing/invalid values</response>
             <response code="500">Oops! Can't get  products list right now</response>
         </member>
+        <member name="M:WebZooShop.Controllers.ProductController.ListByCatecory(System.Int32)">
+            <summary>
+            Список продуктів по категоріям
+            </summary>
+            <returns>Повертає лист по категоріям</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List products</response>
+            <response code="400">List products has missing/invalid values</response>
+            <response code="500">Oops! Can't get  products list right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.ProductController.ListBySearch(System.String)">
+            <summary>
+            Список продуктів по пошуку
+            </summary>
+            <returns>Повертає лист по запиту</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List products</response>
+            <response code="400">List products has missing/invalid values</response>
+            <response code="500">Oops! Can't get  products list right now</response>
+        </member>
         <member name="M:WebZooShop.Controllers.ProductController.GetData(System.Int32)">
             <summary>
             Продукт по ID

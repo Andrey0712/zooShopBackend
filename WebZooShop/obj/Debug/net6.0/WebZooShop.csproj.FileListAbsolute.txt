@@ -74,3 +74,7 @@ D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0
 D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\zooshop\WebZooShop\WebZooShop\obj\Debug\net6.0\WebZooShop.xml
+D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\ClosedXML.dll
+D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\ExcelNumberFormat.dll
+D:\zooshop\WebZooShop\WebZooShop\bin\Debug\net6.0\System.IO.Packaging.dll

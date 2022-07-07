@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using WebZooShop.Data;
 using WebZooShop.Data.Entities;
 using WebZooShop.Data.Entities.Identity;
@@ -98,33 +100,26 @@ namespace WebZooShop.Controllers
 
         public async Task<IActionResult> Delete([FromBody] int id)
         {
+
             try
             {
                 string userName = User.Claims.FirstOrDefault().Value;
-                //string userName = User.FindFirst("UserName")?.Value;
                 var user = await _userManager.FindByEmailAsync(userName);
-                var cart = _context.Carts
-                    .SingleOrDefault(x => x.UserId == user.Id && x.ProductId == id);
-                if (cart == null)
+                var cartItem = _context.Carts.SingleOrDefault(x => x.UserId == user.Id && x.Id == id);
+                if (cartItem == null)
                 {
                     return BadRequest(new { message = "Check id!" });
                 }
-                
-               
-                _context.Carts.Remove(cart);
-            _context.SaveChanges();
-            return Ok(new { message = "Item of cart deleted" });
-
+                _context.Carts.Remove(cartItem);
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Item of cart deleted" });
             }
             catch (Exception ex)
             {
-                return BadRequest(new
-                {
-                    invalid = ex.Message
-                });
+                return BadRequest(new { invalid = "Something went wrong on server " + ex.Message });
             }
 
-                       
+                                   
         }
 
         [HttpPost]
@@ -137,15 +132,15 @@ namespace WebZooShop.Controllers
             {
                 string userName = User.Claims.FirstOrDefault().Value;
                 var user = await _userManager.FindByEmailAsync(userName);
-                var cart = _context.Carts
-                    .SingleOrDefault(x => x.UserId == user.Id );
-                if (cart == null)
+                var carts = _context.Carts
+                    .Where(x => x.UserId == user.Id ).ToList();
+                if (carts.Count()==0)
                 {
                     return BadRequest(new { message = "Check id!" });
                 }
 
 
-                _context.Carts.Remove(cart);
+                _context.Carts.RemoveRange(carts);
                 _context.SaveChanges();
                 return Ok(new { message = "Cart deleted" });
 
@@ -209,6 +204,25 @@ namespace WebZooShop.Controllers
                 });
             }
         }
+
+       /* public ActionResult GetListUsers()
+        {
+            DataTable dt = getData(siteId);
+            //Name of File  
+            var domain = Request.Host.Host;
+            string fileName = $"{domain}.xlsx";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                //Add DataTable in worksheet  
+                wb.Worksheets.Add(dt);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    //Return xlsx Excel File  
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+                }
+            }
+        }*/
     }
 }
 
