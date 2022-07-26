@@ -36,7 +36,7 @@
             <response code="400">Login has missing/invalid values</response>
             <response code="500">Oops! Can't create your login right now</response>
         </member>
-        <member name="M:WebZooShop.Controllers.AccountController.Delete(WebZooShop.Model.UserDelViewModel)">
+        <member name="M:WebZooShop.Controllers.AccountController.Delete(System.Int32)">
             <summary>
             Видалення юзера
             </summary>

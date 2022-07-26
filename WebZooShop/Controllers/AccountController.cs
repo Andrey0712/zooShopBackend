@@ -147,10 +147,10 @@ namespace WebZooShop.Controllers
         //[Authorize]
         [Route("delete")]
 
-        public IActionResult Delete([FromBody] UserDelViewModel model)
+        public IActionResult Delete([FromBody] int id)
         {
 
-            var res = _context.Users.FirstOrDefault(x => x.Id == model.Id);
+            var res = _context.Users.FirstOrDefault(x => x.Id == id);
             if (res == null)
             {
                 return BadRequest(new { message = "Check id!" });
