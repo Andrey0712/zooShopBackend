@@ -21,8 +21,9 @@ namespace WebZooShop.Data.Entities
 
                     SeedRole(services);//сидим роли
                     SeedCateory(services);
+                    SeedInventoryStatus(services);
                     SeedProduct(services);
-                    //SeedOrderStatuses(services);
+                    
 
                 }
                 catch (Exception)
@@ -133,6 +134,28 @@ namespace WebZooShop.Data.Entities
 
         }
 
+        private static void SeedInventoryStatus(IServiceProvider service)
+        {
+            var context = service.GetRequiredService<AppEFContext>();
+            if (!context.InventoryStatus.Any())
+            {
+                context.InventoryStatus.AddRange(new List<InventoryStatusEntity>
+                {
+                    new InventoryStatusEntity
+                    {
+                        Name="У наявності"
+                    },
+                    new InventoryStatusEntity
+                    {
+                        Name="Очікуєм"
+                    },
+                    
+                });
+                context.SaveChanges();
+            }
+
+        }
+
         /*private static void SeedUserProd(IServiceProvider service)
         {
             var context = service.GetRequiredService<AppEFContext>();
@@ -160,16 +183,19 @@ namespace WebZooShop.Data.Entities
             if (!context.Products.Any())
             {
                 var productCategory = context.Categories.FirstOrDefault();
-
+                var productInventoryStatus = context.InventoryStatus.FirstOrDefault();
 
                 ProductEntity product = new ProductEntity
                 {
                    CategoryId = productCategory.Id,
+                    InventoryStatusId = productInventoryStatus.Id,
                     Name = "Royal Canin",
                     Description = "Корм для дорослих собак середніх порід (чия доросла вага становить від 11 до 25 кг) у віці від 12 місяців до 7 років",
                     //DateCreate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                     Price = 500,
-                    StartPhoto = "uploads/royalStart",
+                    StartPhoto = "royalStart",
+                    //InventoryStatus= "У наявності",
+                    Rating=3
                     /*ProductImages = new List<ProductImage>
                      {
 

@@ -15,6 +15,7 @@ namespace WebZooShop.Data
         {
         }
         public DbSet<CategoryEntity> Categories { get; set; }
+        public DbSet<InventoryStatusEntity> InventoryStatus { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
         //public DbSet<ProductImageEntity> ProductImages { get; set; }
         public DbSet<CartEntity> Carts { get; set; }

@@ -84,7 +84,11 @@ namespace WebZooShop.Controllers
                     .Where(x => x.UserId == user.Id)
                     .Include(x => x.Product)
                     .Select(x => _mapper.Map<CartItemViewModel>(x)).ToListAsync();
+                if(model!= null)
                 return Ok(model);
+                else
+                    return Ok();
+
             }
             catch (Exception ex)
             {

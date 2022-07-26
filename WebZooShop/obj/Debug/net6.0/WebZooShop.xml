@@ -114,7 +114,7 @@
             <response code="400">List products has missing/invalid values</response>
             <response code="500">Oops! Can't get  products list right now</response>
         </member>
-        <member name="M:WebZooShop.Controllers.ProductController.ListByCatecory(System.Int32)">
+        <member name="M:WebZooShop.Controllers.ProductController.ListByCatecory(System.String)">
             <summary>
             Список продуктів по категоріям
             </summary>
@@ -145,7 +145,7 @@
             <response code="400">Get product has missing/invalid values</response>
             <response code="500">Oops! Can't get  product  right now</response>
         </member>
-        <member name="M:WebZooShop.Controllers.ProductController.Delete(WebZooShop.Model.ProductDelViewModel)">
+        <member name="M:WebZooShop.Controllers.ProductController.Delete(System.Int32)">
             <summary>
             Видалення продукту
             </summary>
@@ -167,7 +167,7 @@
             <response code="400">Add product has missing/invalid values</response>
             <response code="500">Oops! Can't add product right now</response>
         </member>
-        <member name="M:WebZooShop.Controllers.ProductController.Edit(WebZooShop.Model.ProductImageToEdit)">
+        <member name="M:WebZooShop.Controllers.ProductController.Edit(WebZooShop.Model.ProductToEdit)">
             <summary>
             Редагування продукту
             </summary>
@@ -216,7 +216,7 @@
             Модель для створення товару
             </summary>
         </member>
-        <member name="T:WebZooShop.Model.ProductImageToEdit">
+        <member name="T:WebZooShop.Model.ProductToEdit">
             <summary>
             Модель для зміни товару
             </summary>

@@ -283,6 +283,24 @@ namespace WebZooShop.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("WebZooShop.Data.Entities.Identity.InventoryStatusEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tblInventoryStatus");
+                });
+
             modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -301,6 +319,9 @@ namespace WebZooShop.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("InventoryStatusId")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -311,7 +332,7 @@ namespace WebZooShop.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Priority")
+                    b.Property<int>("Rating")
                         .HasColumnType("integer");
 
                     b.Property<string>("StartPhoto")
@@ -320,6 +341,8 @@ namespace WebZooShop.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("InventoryStatusId");
 
                     b.ToTable("tblProducts");
                 });
@@ -404,7 +427,13 @@ namespace WebZooShop.Migrations
                         .WithMany("Product")
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("WebZooShop.Data.Entities.Identity.InventoryStatusEntity", "InventoryStatus")
+                        .WithMany("Product")
+                        .HasForeignKey("InventoryStatusId");
+
                     b.Navigation("Category");
+
+                    b.Navigation("InventoryStatus");
                 });
 
             modelBuilder.Entity("WebZooShop.Data.Entities.CategoryEntity", b =>
@@ -422,6 +451,11 @@ namespace WebZooShop.Migrations
                     b.Navigation("CartEntities");
 
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.Identity.InventoryStatusEntity", b =>
+                {
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>

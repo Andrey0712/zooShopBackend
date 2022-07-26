@@ -239,7 +239,7 @@ namespace WebZooShop.Controllers
                         Email = payload.Email,
                         UserName = payload.Email,
                         FirstName = payload.GivenName,
-                        SecondName = payload.FamilyName
+                        SecondName = payload.FamilyName,
                         //Phone="+38000000000"
                     };
                     var resultCreate = await _userManager.CreateAsync(user);

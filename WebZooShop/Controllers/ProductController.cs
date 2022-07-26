@@ -9,6 +9,8 @@ using WebZooShop.Model;
 
 namespace WebZooShop.Controllers
 {
+   
+
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -39,6 +41,7 @@ namespace WebZooShop.Controllers
                 Thread.Sleep(2000);
                 var model = await _context.Products
                      .Include(x => x.Category)
+                     .Include(x => x.InventoryStatus)
                     .Select(x => _mapper.Map<ProductItemViewModel>(x)).ToListAsync();
                 return Ok(model);
             }
@@ -59,17 +62,24 @@ namespace WebZooShop.Controllers
         /// <response code="200">List products</response>
         /// <response code="400">List products has missing/invalid values</response>
         /// <response code="500">Oops! Can't get  products list right now</response>
+       
         [HttpGet]
         [Route("listByCatecory")]
-        public async Task<IActionResult> ListByCatecory(int Id)
+        //public async Task<IActionResult> ListByCatecory([FromBody] SearchByCategoryModel model)
+        public async Task<IActionResult> ListByCatecory(string name)
         {
-            try
+             if (name != "null")
             {
-                Thread.Sleep(2000);
-                var model = await _context.Products
-                      .Where(x => x.CategoryId == Id)
+              try
+            {                   
+                     //Thread.Sleep(2000);
+                var list = await _context.Products
+                    .Include(c => c.Category)
+                      .Include(x => x.InventoryStatus)
+                      .Where(x => x.Category.Name == name)
                     .Select(x => _mapper.Map<ProductItemViewModel>(x)).ToListAsync();
-                return Ok(model);
+                return Ok(list);
+                    
             }
             catch (Exception ex)
             {
@@ -78,6 +88,27 @@ namespace WebZooShop.Controllers
                     invalid = ex.Message
                 });
             }
+            }
+            else
+            {
+                try
+                {
+                    Thread.Sleep(2000);
+                    var model = await _context.Products
+                         .Include(x => x.Category)
+                         .Include(x => x.InventoryStatus)
+                        .Select(x => _mapper.Map<ProductItemViewModel>(x)).ToListAsync();
+                    return Ok(model);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(new
+                    {
+                        invalid = ex.Message
+                    });
+                }
+            }
+           
         }
 
         /// <summary>
@@ -88,37 +119,25 @@ namespace WebZooShop.Controllers
         /// <response code="200">List products</response>
         /// <response code="400">List products has missing/invalid values</response>
         /// <response code="500">Oops! Can't get  products list right now</response>
-        [HttpGet]
-        [Route("listBySearch")]
+        [HttpGet("listBySearch")]
         public async Task<IActionResult> ListBySearch(string name)
         {
             try
             {
                 Thread.Sleep(2000);
-                var query =  _context.Products
+                var query = _context.Products
                      .Include(c => c.Category)
+                      .Include(x => x.InventoryStatus)
                              .AsQueryable();
                 if (!string.IsNullOrEmpty(name))
                 {
                     query = query.Where(x => x.Name.ToLower().Contains(name.ToLower()));
                 }
-                var model = await query
-                    /*.Skip((page - 1) * pageSize)
-                    .Take(pageSize)*/
-                    .Select(x => _mapper.Map<ProductItemViewModel>(x))
-                    .ToListAsync();
-               /* int total = query.Count();
-                int pages = (int)Math.Ceiling(total / (double)pageSize);*/
-               /* return Ok(new ProductSearchResultViewModel
-                {
-                    Products = model,
-                    Total = total,
-                    CurrentPage = page,
-                    Pages = pages,
-                    CategoryName = categoryName
+                var data = await query
 
-                });*/
-                return Ok(model);
+                    .Select(x => _mapper.Map<ProductItemViewModel>(x)).ToListAsync();
+
+                return Ok(data);
             }
             catch (Exception ex)
             {
@@ -153,7 +172,7 @@ namespace WebZooShop.Controllers
                 Description = product.Description,
                 StartPhoto = product.StartPhoto,
                 DateCreate = product.DateCreated.ToString("dd.MM.yyyy HH:mm:ss"),
-                
+
             };
             return Ok(model);
         }
@@ -170,10 +189,12 @@ namespace WebZooShop.Controllers
 
         [HttpPost]
         [Route("delete")]
-        public IActionResult Delete([FromBody] ProductDelViewModel model)
+        //public IActionResult Delete([FromBody] ProductItemViewModel model)
+            public IActionResult Delete([FromBody] int id)
+            
         {
-
-            var res = _context.Products.FirstOrDefault(x => x.Id == model.Id);
+            
+            var res = _context.Products.FirstOrDefault(x => x.Id == id);
             if (res == null)
             {
                 return BadRequest(new { message = "Check id!" });
@@ -200,23 +221,23 @@ namespace WebZooShop.Controllers
         {
             try
             {
-               /* List<string> fileNames = new List<string>();
-                foreach (var item in model.Images)
-                {
-                    string fileName = "";
-                    if (item != null)
-                    {
-                        var ext = Path.GetExtension(item.FileName);
-                        fileName = Path.GetRandomFileName() + ext;
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(),
-                            "uploads", fileName);
-                        using (var stream = System.IO.File.Create(filePath))
-                        {
-                            item.CopyTo(stream);
-                        }
-                        fileNames.Add(fileName);
-                    }
-                }*/
+                /* List<string> fileNames = new List<string>();
+                 foreach (var item in model.Images)
+                 {
+                     string fileName = "";
+                     if (item != null)
+                     {
+                         var ext = Path.GetExtension(item.FileName);
+                         fileName = Path.GetRandomFileName() + ext;
+                         var filePath = Path.Combine(Directory.GetCurrentDirectory(),
+                             "uploads", fileName);
+                         using (var stream = System.IO.File.Create(filePath))
+                         {
+                             item.CopyTo(stream);
+                         }
+                         fileNames.Add(fileName);
+                     }
+                 }*/
 
                 string startFoto = String.Empty;
                 var product = _mapper.Map<ProductEntity>(model);
@@ -270,13 +291,16 @@ namespace WebZooShop.Controllers
 
         [HttpPost]
         [Route("editProduct")]
-        public IActionResult Edit([FromForm] ProductImageToEdit model)
+        public IActionResult Edit([FromForm] ProductToEdit model)
         {
 
 
             if (ModelState.IsValid)
             {
-                var itemProd = _context.Products.FirstOrDefault(x => x.Id == model.Id);
+                var itemProd = _context.Products
+                     .Include(x => x.Category)
+                     .Include(x => x.InventoryStatus)
+                    .FirstOrDefault(x => x.Id == model.Id);
                 string dirPath = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
 
                 itemProd.Id = model.Id;
@@ -292,6 +316,18 @@ namespace WebZooShop.Controllers
                 {
                     itemProd.Price = model.Price;
                 }
+                if (model.InventoryStatusId != 0)
+                {
+                    itemProd.InventoryStatusId = model.InventoryStatusId;
+                }
+                if (model.CategoryId != 0)
+                {
+                    itemProd.CategoryId = model.CategoryId;
+                }
+                if (model.Rating != 0)
+                {
+                    itemProd.Rating = model.Rating;
+                }
                 if (model.StartPhoto != null)
                 {
                     string randomFilename = Path.GetRandomFileName() +
@@ -305,49 +341,53 @@ namespace WebZooShop.Controllers
                     itemProd.StartPhoto = randomFilename;
                 }
 
-               /* //видаляємо сторі фотки
-                if (model.deletedImages != null)
-                {
-                    foreach (var delProduct in model.deletedImages)
-                    {
-                        var delProductImage = itemProd.ProductImages.SingleOrDefault(x => delProduct.Contains(x.Name));
-                        string imgPath = Path.Combine(dirPath, delProductImage.Name);
-                        if (System.IO.File.Exists(imgPath))
-                        {
-                            System.IO.File.Delete(imgPath);
-                        }
-                        _context.ProductImages.Remove(delProductImage);
-                    }
-                }
-                //Додати нові фотки
-                if (model.Images != null)
-                {
-                    foreach (var newImages in model.Images)
-                    {
-                        string ext = Path.GetExtension(newImages.FileName);
-                        string fileName = Path.GetRandomFileName() + ext;
+                /* //видаляємо сторі фотки
+                 if (model.deletedImages != null)
+                 {
+                     foreach (var delProduct in model.deletedImages)
+                     {
+                         var delProductImage = itemProd.ProductImages.SingleOrDefault(x => delProduct.Contains(x.Name));
+                         string imgPath = Path.Combine(dirPath, delProductImage.Name);
+                         if (System.IO.File.Exists(imgPath))
+                         {
+                             System.IO.File.Delete(imgPath);
+                         }
+                         _context.ProductImages.Remove(delProductImage);
+                     }
+                 }
+                 //Додати нові фотки
+                 if (model.Images != null)
+                 {
+                     foreach (var newImages in model.Images)
+                     {
+                         string ext = Path.GetExtension(newImages.FileName);
+                         string fileName = Path.GetRandomFileName() + ext;
 
-                        string filePath = Path.Combine(dirPath, fileName);
-                        using (var stream = System.IO.File.Create(filePath))
-                        {
-                            newImages.CopyTo(stream);
-                        }
+                         string filePath = Path.Combine(dirPath, fileName);
+                         using (var stream = System.IO.File.Create(filePath))
+                         {
+                             newImages.CopyTo(stream);
+                         }
 
-                        _context.ProductImages.Add(new Data.Entities.ProductImageEntity
-                        {
-                            Name = fileName,
-                            ProductId = itemProd.Id
-                        });
-                    }
-                }*/
+                         _context.ProductImages.Add(new Data.Entities.ProductImageEntity
+                         {
+                             Name = fileName,
+                             ProductId = itemProd.Id
+                         });
+                     }
+                 }*/
 
                 _context.SaveChanges();
 
             }
-
+            //return Ok(model);
             return Ok(new { message = "ok edit" });
 
         }
+
     }
+
+       
+    
 }
 

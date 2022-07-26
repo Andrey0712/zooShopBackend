@@ -41,7 +41,7 @@ namespace WebZooShop.Servise
                 new Claim("email", user.Email),
             new Claim("firstname", user.FirstName),
             new Claim("secondname", user.SecondName),
-            new Claim("phone", user.Phone)
+            //new Claim("phone", user.Phone)
 
         };
             

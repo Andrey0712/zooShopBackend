@@ -50,7 +50,8 @@ namespace WebZooShop.Mapper
                .ForMember(x => x.CategoryId, opt => opt.MapFrom(opt => opt.CategoryId))
                .ForMember(x => x.Name, opt => opt.MapFrom(opt => opt.Name))
                .ForMember(x => x.Price, opt => opt.MapFrom(opt => opt.Price))
-               .ForMember(x => x.Description, opt => opt.MapFrom(opt => opt.Description));
+               .ForMember(x => x.Description, opt => opt.MapFrom(opt => opt.Description))
+            .ForMember(x => x.InventoryStatusId, opt => opt.MapFrom(opt => 1));
 
 
 
@@ -61,10 +62,11 @@ namespace WebZooShop.Mapper
 
             CreateMap<ProductEntity, ProductItemViewModel>()
                .ForMember(x => x.Image, opt => opt.MapFrom(x => $"uploads/{x.StartPhoto}"))
-               .ForMember(x => x.Category, opt => opt.MapFrom(x =>x.Category.Name))
-                //.ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => "Очікуєм"))
-               .ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => "У наявності"))
-               .ForMember(x => x.Rating, opt => opt.MapFrom(x => new Random().Next(1, 5)));
+               .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
+            .ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => x.InventoryStatus.Name));
+            //.ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => "Очікуєм"))
+            //.ForMember(x => x.InventoryStatus, opt => opt.MapFrom(x => "У наявності"))
+            //.ForMember(x => x.Rating, opt => opt.MapFrom(x => new Random().Next(1, 5)));
 
             CreateMap<CartAddViewModel, CartEntity>();
 

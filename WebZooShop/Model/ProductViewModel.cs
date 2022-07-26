@@ -17,11 +17,17 @@ namespace WebZooShop.Model
         public int CategoryId { get; set; }
         [Display(Name = "Титульна фотографія")]
         public IFormFile StartPhoto { get; set; }
+        [Display(Name = "Наявність товару"), Required(ErrorMessage = "Поле 'Опис товару' не може бути пустим!")]
+        public int InventoryStatusId { get; set; }
+        [Display(Name = "Рейтинг")]
+        public int Rating { get; set; }
+
+
         //[Display(Name = "Дата створення")]
         //public DateTime DateCreate { get; set; }
 
-       /* [Display(Name = "Фотографії")]
-        public List<IFormFile> Images { get; set; }*/
+        /* [Display(Name = "Фотографії")]
+         public List<IFormFile> Images { get; set; }*/
     }
 
     /*public class ProductItemViewModel
@@ -64,18 +70,23 @@ namespace WebZooShop.Model
         public string DateCreate { get; set; }
         //public List<ProductImageItemViewModel> Images { get; set; }
     }
-
-   /* public class ProductImageItemViewModel
+    public class SearchByCategoryModel
     {
-        public string Path { get; set; }
-    }*/
+        public string Id { get; set; }
+        public string? Name { get; set; }
+    }
+
+    /* public class ProductImageItemViewModel
+     {
+         public string Path { get; set; }
+     }*/
 
 
 
     /// <summary>
     /// Модель для зміни товару
     /// </summary>
-    public class ProductImageToEdit
+    public class ProductToEdit
     {
         [Display(Name = "Id"), Required(ErrorMessage = "Поле 'Опис товару' не може бути пустим!")]
         public int Id { get; set; }
@@ -87,9 +98,15 @@ namespace WebZooShop.Model
         public string Description { get; set; }
         [Display(Name = "Титульна фотографія")]
         public IFormFile StartPhoto { get; set; }
+        [Display(Name = "Наявність товару"), Required(ErrorMessage = "Поле 'Опис товару' не може бути пустим!")]
+        public int InventoryStatusId { get; set; }
+        [Display(Name = "Рейтинг")]
+        public int Rating { get; set; }
+        [Display(Name = "Категория")]
+        public int CategoryId { get; set; }
 
-       /* //public List<ProductImage> Images { get; set; }
-        public List<IFormFile> Images { get; set; }//це для фото,які ми будемо додавати на вьюшці едіта.
-        public List<string> deletedImages { get; set; }//це для фото,які ми будемо видаляти на вьюшці едіта.*/
+        /* //public List<ProductImage> Images { get; set; }
+         public List<IFormFile> Images { get; set; }//це для фото,які ми будемо додавати на вьюшці едіта.
+         public List<string> deletedImages { get; set; }//це для фото,які ми будемо видаляти на вьюшці едіта.*/
     }
 }
