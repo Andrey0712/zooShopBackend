@@ -301,6 +301,105 @@ namespace WebZooShop.Migrations
                     b.ToTable("tblInventoryStatus");
                 });
 
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConsumerFirstName")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("ConsumerPhone")
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("ConsumerSecondName")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("integer");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("tblOrderEntities");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderItemEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BuyPrice")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("tblOrderItemEntities");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderStatusEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tblOrderStatusEntities");
+                });
+
             modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -330,6 +429,9 @@ namespace WebZooShop.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("Price")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Quantity")
                         .HasColumnType("integer");
 
                     b.Property<int>("Rating")
@@ -421,6 +523,44 @@ namespace WebZooShop.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderEntity", b =>
+                {
+                    b.HasOne("WebZooShop.Data.Entities.OrderStatusEntity", "OrderStatus")
+                        .WithMany("Orders")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebZooShop.Data.Entities.Identity.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OrderStatus");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderItemEntity", b =>
+                {
+                    b.HasOne("WebZooShop.Data.Entities.OrderEntity", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebZooShop.Data.Entities.ProductEntity", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
                     b.HasOne("WebZooShop.Data.Entities.CategoryEntity", "Category")
@@ -456,6 +596,16 @@ namespace WebZooShop.Migrations
             modelBuilder.Entity("WebZooShop.Data.Entities.Identity.InventoryStatusEntity", b =>
                 {
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderEntity", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("WebZooShop.Data.Entities.OrderStatusEntity", b =>
+                {
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>

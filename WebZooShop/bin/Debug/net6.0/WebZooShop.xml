@@ -40,7 +40,7 @@
             <summary>
             Видалення юзера
             </summary>
-            <param name="model">Понель із даними</param>
+            <param name="id">Понель із даними</param>
             <returns>Повертає message</returns>
             <remarks>Awesomeness!</remarks>
             <response code="200">Delete user</response>
@@ -104,6 +104,48 @@
             <response code="500">Oops! Can't delete category now</response>
             
         </member>
+        <member name="M:WebZooShop.Controllers.OrdersController.StatusList">
+            <summary>
+            Список статусів замовленя
+            </summary>
+            <returns>Повертає лист</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List status</response>
+            <response code="400">List status has missing/invalid values</response>
+            <response code="500">Oops! Can't get  status list right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.OrdersController.Add(WebZooShop.Model.OrderAddViewModel)">
+            <summary>
+            Додати замовленя
+            </summary>
+            <param name="model">Понель із даними</param>
+            <returns>Повертає ok</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Add order</response>
+            <response code="400">Add order has missing/invalid values</response>
+            <response code="500">Oops! Can't add order right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.OrdersController.List">
+            <summary>
+            Список  замовлень
+            </summary>
+            <returns>Повертає лист замовлень</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List orders</response>
+            <response code="400">List orders has missing/invalid values</response>
+            <response code="500">Oops! Can't get  orders list right now</response>
+        </member>
+        <member name="M:WebZooShop.Controllers.OrdersController.ChangeStatus(WebZooShop.Model.OrderChangeStatusViewModel)">
+             <summary>
+            Зміна статусу замовленя
+             </summary>
+             <param name="model">Понель із даними</param>
+             <returns>Повертає ok</returns>
+             <remarks>Awesomeness!</remarks>
+             <response code="200">Change order</response>
+             <response code="400">Change order has missing/invalid values</response>
+             <response code="500">Oops! Can't Change order right now</response>
+        </member>
         <member name="M:WebZooShop.Controllers.ProductController.List">
             <summary>
             Список продуктів
@@ -149,7 +191,7 @@
             <summary>
             Видалення продукту
             </summary>
-            <param name="model">Понель із даними</param>
+            <param name="id">Понель із даними</param>
             <returns>Повертає повідомлення</returns>
             <remarks>Awesomeness!</remarks>
             <response code="200">Delete product</response>
@@ -189,6 +231,31 @@
             </summary>
         </member>
         <member name="P:WebZooShop.Data.Entities.CartEntity.ProductId">
+            <summary>
+            Продукт, який замовив
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.OrderEntity.ConsumerFirstName">
+            <summary>
+            Контакти отримувача
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.OrderEntity.UserId">
+            <summary>
+            Користувач який змовив
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.OrderItemEntity.Quantity">
+            <summary>
+            Кількість товару, який ми замовили
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.OrderItemEntity.OrderId">
+            <summary>
+            Замовлення
+            </summary>
+        </member>
+        <member name="P:WebZooShop.Data.Entities.OrderItemEntity.ProductId">
             <summary>
             Продукт, який замовив
             </summary>

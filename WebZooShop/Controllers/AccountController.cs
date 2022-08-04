@@ -136,7 +136,7 @@ namespace WebZooShop.Controllers
         /// <summary>
         /// Видалення юзера
         /// </summary>
-        /// <param name="model">Понель із даними</param>
+        /// <param name="id">Понель із даними</param>
         /// <returns>Повертає message</returns>
         /// <remarks>Awesomeness!</remarks>
         /// <response code="200">Delete user</response>

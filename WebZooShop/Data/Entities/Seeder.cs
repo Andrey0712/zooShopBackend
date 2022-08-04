@@ -23,7 +23,7 @@ namespace WebZooShop.Data.Entities
                     SeedCateory(services);
                     SeedInventoryStatus(services);
                     SeedProduct(services);
-                    
+                    SeedOrderStatuses(services);
 
                 }
                 catch (Exception)
@@ -73,7 +73,7 @@ namespace WebZooShop.Data.Entities
 
         }
 
-       /* private static void SeedOrderStatuses(IServiceProvider service)
+        private static void SeedOrderStatuses(IServiceProvider service)
         {
             var context = service.GetRequiredService<AppEFContext>();
             if (!context.OrderStatuses.Any())
@@ -81,29 +81,25 @@ namespace WebZooShop.Data.Entities
                 context.OrderStatuses
                         .Add(new OrderStatusEntity
                         {
-                            Name = "Новий заказ"
+                            Name = "Нове замовленя"
                         });
-                context.OrderStatuses
-                    .Add(new OrderStatusEntity
-                    {
-                        Name = "В роботі"
-                    });
+               
                 context.OrderStatuses
                     .Add(new OrderStatusEntity
                     {
                         Name = "Відправлено"
                     });
-               
+
                 context.OrderStatuses
                     .Add(new OrderStatusEntity
                     {
                         Name = "Відхилено"
                     });
-                
+
                 context.SaveChanges();
             }
 
-        }*/
+        }
 
         private static void SeedCateory(IServiceProvider service)
         {
@@ -193,7 +189,7 @@ namespace WebZooShop.Data.Entities
                     Description = "Корм для дорослих собак середніх порід (чия доросла вага становить від 11 до 25 кг) у віці від 12 місяців до 7 років",
                     //DateCreate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                     Price = 500,
-                    StartPhoto = "royalStart",
+                    StartPhoto = "1xxn0a2u.a1p.jpg",
                     //InventoryStatus= "У наявності",
                     Rating=3
                     /*ProductImages = new List<ProductImage>

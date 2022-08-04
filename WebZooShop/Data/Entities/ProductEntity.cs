@@ -21,7 +21,7 @@ namespace WebZooShop.Data.Entities
         [Display(Name = "Титульна фотографія")]
         public string StartPhoto { get; set; }     
         public int Rating { get; set; }
-        //public int? Quantity { get; set; }
+        public int? Quantity { get; set; }
         //public string InventoryStatus { get; set; }
         [Display(Name = "Категория")]
         [ForeignKey("Category")]

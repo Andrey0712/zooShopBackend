@@ -180,7 +180,7 @@ namespace WebZooShop.Controllers
         /// <summary>
         /// Видалення продукту
         /// </summary>
-        /// <param name="model">Понель із даними</param>
+        /// <param name="id">Понель із даними</param>
         /// <returns>Повертає повідомлення</returns>
         /// <remarks>Awesomeness!</remarks>
         /// <response code="200">Delete product</response>
