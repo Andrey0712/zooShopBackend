@@ -309,6 +309,9 @@ namespace WebZooShop.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("City")
+                        .HasColumnType("text");
+
                     b.Property<string>("ConsumerFirstName")
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
@@ -326,6 +329,12 @@ namespace WebZooShop.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("PostOffice")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Region")
+                        .HasColumnType("text");
 
                     b.Property<int>("StatusId")
                         .HasColumnType("integer");
@@ -551,7 +560,7 @@ namespace WebZooShop.Migrations
                         .IsRequired();
 
                     b.HasOne("WebZooShop.Data.Entities.ProductEntity", "Product")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -611,6 +620,8 @@ namespace WebZooShop.Migrations
             modelBuilder.Entity("WebZooShop.Data.Entities.ProductEntity", b =>
                 {
                     b.Navigation("CartEntities");
+
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

@@ -78,10 +78,12 @@ namespace WebZooShop.Mapper
 
 
             CreateMap<OrderStatusEntity, OrderStatusItemViewModel>();
+
             CreateMap<OrderAddViewModel, OrderEntity>()
                 .ForMember(x => x.DateCreated, opt => opt.MapFrom(x =>
                     DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)))
                 .ForMember(x => x.OrderItems, opt => opt.Ignore());
+            //.ForMember(x => x.OrderStatus, opt => opt.MapFrom(x => "Нове замовленя"));
 
             CreateMap<OrderItemAddViewModel, OrderItemEntity>();
 

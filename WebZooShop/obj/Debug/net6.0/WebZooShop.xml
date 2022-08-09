@@ -240,6 +240,11 @@
             Контакти отримувача
             </summary>
         </member>
+        <member name="P:WebZooShop.Data.Entities.OrderEntity.Region">
+            <summary>
+            Дані доставки товару
+            </summary>
+        </member>
         <member name="P:WebZooShop.Data.Entities.OrderEntity.UserId">
             <summary>
             Користувач який змовив

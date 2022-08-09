@@ -17,6 +17,13 @@ namespace WebZooShop.Data.Entities
         [StringLength(20)]
         public string ConsumerPhone { get; set; }
 
+        /// <summary>
+        /// Дані доставки товару
+        /// </summary>
+        public string Region { get; set; }
+        public string City { get; set; }
+        public string PostOffice { get; set; }
+       
         [ForeignKey("OrderStatus")]
         public int StatusId { get; set; }
 

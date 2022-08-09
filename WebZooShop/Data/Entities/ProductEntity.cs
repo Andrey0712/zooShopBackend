@@ -33,6 +33,7 @@ namespace WebZooShop.Data.Entities
         [ForeignKey("InventoryStatus")]
         public int? InventoryStatusId { get; set; }
         public virtual InventoryStatusEntity InventoryStatus { get; set; }
+        public virtual ICollection<OrderItemEntity> OrderItems { get; set; }
 
     }
 }

@@ -16,7 +16,10 @@
 
         public string ConsumerPhone { get; set; }
 
-        
+        public string Region { get; set; }
+        public string City { get; set; }
+        public string PostOffice { get; set; }
+
         public int StatusId { get; set; }
         public List<OrderItemAddViewModel> OrderItems { get; set; }
     }
@@ -52,6 +55,9 @@
         public string ConsumerSecondName { get; set; }
 
         public string ConsumerPhone { get; set; }
+        public string Region { get; set; }
+        public string City { get; set; }
+        public string PostOffice { get; set; }
 
         public string StatusName { get; set; }
         public string DateCreated { get; set; }
