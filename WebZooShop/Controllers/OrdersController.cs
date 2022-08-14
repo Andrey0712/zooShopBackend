@@ -140,6 +140,35 @@ namespace WebZooShop.Controllers
         }
 
         /// <summary>
+        /// Список позицій в замовлені
+        /// </summary>
+        /// <returns>Повертає лист </returns>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">List items in order</response>
+        /// <response code="400">List has missing/invalid values</response>
+        /// <response code="500">Oops! Can't get list right now</response>
+        
+        [HttpPost]
+        [Route("listItemOrder")]
+        public IActionResult ListItemOrder([FromBody] int id)
+        {
+            try
+            {
+                var model = _context.OrderItems
+                    .Where(x => x.OrderId == id)
+                    .Select(x => _mapper.Map<OrderItemViewModel>(x));
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    invalid = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
         ///Зміна статусу замовленя
         /// </summary>
         /// <param name="model">Понель із даними</param>
@@ -150,7 +179,7 @@ namespace WebZooShop.Controllers
         /// <response code="500">Oops! Can't Change order right now</response>
 
         [HttpPost]
-        [Route("status/change")]
+        [Route("changeStatus")]
         //[Authorize(Roles = Roles.Admin)]
         public async Task<IActionResult> ChangeStatus([FromBody] OrderChangeStatusViewModel model)
         {
@@ -170,7 +199,7 @@ namespace WebZooShop.Controllers
             }
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("user/list")]
         public async Task<IActionResult> UserList()
         {
@@ -197,6 +226,6 @@ namespace WebZooShop.Controllers
                     invalid = ex.Message
                 });
             }
-        }
+        }*/
     }
 }

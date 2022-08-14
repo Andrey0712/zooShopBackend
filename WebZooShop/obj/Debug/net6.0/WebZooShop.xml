@@ -135,6 +135,16 @@
             <response code="400">List orders has missing/invalid values</response>
             <response code="500">Oops! Can't get  orders list right now</response>
         </member>
+        <member name="M:WebZooShop.Controllers.OrdersController.ListItemOrder(System.Int32)">
+            <summary>
+            Список позицій в замовлені
+            </summary>
+            <returns>Повертає лист </returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">List items in order</response>
+            <response code="400">List has missing/invalid values</response>
+            <response code="500">Oops! Can't get list right now</response>
+        </member>
         <member name="M:WebZooShop.Controllers.OrdersController.ChangeStatus(WebZooShop.Model.OrderChangeStatusViewModel)">
              <summary>
             Зміна статусу замовленя
