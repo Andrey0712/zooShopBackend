@@ -86,8 +86,9 @@ namespace WebZooShop.Controllers
                 {
                     item.OrderId = entity.Id;
                     _context.OrderItems.Add(item);
+                   
                 }
-                _context.SaveChanges();
+                 _context.SaveChanges();
 
                 var cartData = _context.Carts.Where(x => x.UserId == user.Id).ToArray();
                 _context.Carts.RemoveRange(cartData);

@@ -71,6 +71,7 @@ namespace WebZooShop.Mapper
             CreateMap<CartAddViewModel, CartEntity>();
 
             CreateMap<CartEntity, CartItemViewModel>()
+                 .ForMember(x => x.Id, opt => opt.MapFrom(x => x.Product.Id))
                .ForMember(x => x.ProductName, opt => opt.MapFrom(x => x.Product.Name))
                .ForMember(x => x.ProductImage, opt => opt.MapFrom(x => $"uploads/{x.Product.StartPhoto}"))
                .ForMember(x => x.ProductPrice, opt => opt.MapFrom(x => x.Product.Price));
@@ -85,7 +86,9 @@ namespace WebZooShop.Mapper
                 .ForMember(x => x.OrderItems, opt => opt.Ignore());
             //.ForMember(x => x.OrderStatus, opt => opt.MapFrom(x => "Нове замовленя"));
 
-            CreateMap<OrderItemAddViewModel, OrderItemEntity>();
+            CreateMap<OrderItemAddViewModel, OrderItemEntity>()
+                .ForMember(x => x.DateCreated, opt => opt.MapFrom(x =>
+                    DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)));
 
             CreateMap<OrderItemEntity, OrderItemViewModel>()
                 .ForMember(x => x.ProductName, opt => opt.MapFrom(x => x.Product.Name));
