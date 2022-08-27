@@ -148,17 +148,17 @@ namespace WebZooShop.Controllers
         /// <response code="200">List items in order</response>
         /// <response code="400">List has missing/invalid values</response>
         /// <response code="500">Oops! Can't get list right now</response>
-        
+
         [HttpPost]
         [Route("listItemOrder")]
-        public IActionResult ListItemOrder([FromBody] int id)
+        public IActionResult ListItemOrder([FromBody] OrderListItemsViewModel model)
         {
             try
             {
-                var model = _context.OrderItems
-                    .Where(x => x.OrderId == id)
+                var list = _context.OrderItems
+                    .Where(x => x.OrderId == model.Id)
                     .Select(x => _mapper.Map<OrderItemViewModel>(x));
-                return Ok(model);
+                return Ok(list);
             }
             catch (Exception ex)
             {

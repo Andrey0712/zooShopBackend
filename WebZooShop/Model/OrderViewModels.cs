@@ -47,6 +47,13 @@
 
     }
 
+    public class OrderListItemsViewModel
+    {
+        public int Id { get; set; }
+       
+
+    }
+
     public class OrderViewModel
     {
         public int Id { get; set; }
