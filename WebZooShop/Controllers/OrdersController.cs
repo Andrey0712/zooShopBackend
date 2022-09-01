@@ -85,6 +85,7 @@ namespace WebZooShop.Controllers
                 foreach (var item in entityItems)
                 {
                     item.OrderId = entity.Id;
+                    item.Suma = item.BuyPrice * item.Quantity;
                     _context.OrderItems.Add(item);
                    
                 }

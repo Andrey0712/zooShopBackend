@@ -91,7 +91,9 @@ namespace WebZooShop.Mapper
                     DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc)));
 
             CreateMap<OrderItemEntity, OrderItemViewModel>()
-                .ForMember(x => x.ProductName, opt => opt.MapFrom(x => x.Product.Name));
+                .ForMember(x => x.Product, opt => opt.MapFrom(x => x.Product.Name))
+                 .ForMember(x => x.Price, opt => opt.MapFrom(x => x.BuyPrice)); 
+                  //.ForMember(x => x.Suma, opt => opt.MapFrom(x => { x.BuyPrice}*{x.q)) 
                 //.ForMember(x => x.ProductImage, opt => opt.MapFrom(x => x.Product.ProductImages.Select(x => x.Name)));
 
             CreateMap<OrderEntity, OrderViewModel>()

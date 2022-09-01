@@ -23,6 +23,7 @@ namespace WebZooShop.Data.Entities
         public int ProductId { get; set; }
 
         public int BuyPrice { get; set; }
+        public int Suma { get; set; }
         public virtual OrderEntity Order { get; set; }
         public virtual ProductEntity Product { get; set; }
 

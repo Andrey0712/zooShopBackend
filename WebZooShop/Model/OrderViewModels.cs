@@ -4,7 +4,8 @@
     {
         public int ProductId { get; set; }
         public int Quantity { get; set; }
-        public decimal BuyPrice { get; set; }
+        public int BuyPrice { get; set; }
+        public int Suma { get; set; }
     }
 
     public class OrderAddViewModel
@@ -35,9 +36,10 @@
     public class OrderItemViewModel
     {
         public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public string Product { get; set; }
         public int Quantity { get; set; }
-        public decimal BuyPrice { get; set; }
+        public int Price { get; set; }
+        public int Suma { get; set; }
     }
 
     public class OrderChangeStatusViewModel
