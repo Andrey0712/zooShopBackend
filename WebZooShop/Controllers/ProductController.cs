@@ -328,6 +328,15 @@ namespace WebZooShop.Controllers
                 {
                     itemProd.Rating = model.Rating;
                 }
+                if (model.Quantity != 0)
+                {
+                    itemProd.Quantity = model.Quantity;
+                }
+                else
+                {
+                    itemProd.Quantity = 0;
+                    itemProd.InventoryStatusId = 2;
+                }
                 if (model.StartPhoto != null)
                 {
                     string randomFilename = Path.GetRandomFileName() +

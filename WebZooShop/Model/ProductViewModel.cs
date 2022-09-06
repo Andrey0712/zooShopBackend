@@ -21,6 +21,8 @@ namespace WebZooShop.Model
         public int InventoryStatusId { get; set; }
         [Display(Name = "Рейтинг")]
         public int Rating { get; set; }
+        [Display(Name = "Кількість")]
+        public int Quantity { get; set; }
 
 
         //[Display(Name = "Дата створення")]
@@ -50,6 +52,7 @@ namespace WebZooShop.Model
         public string Category { get; set; }
         public string InventoryStatus { get; set; }
         public int Rating { get; set; }
+        public int Quantity { get; set; }
 
     }
 
@@ -104,6 +107,8 @@ namespace WebZooShop.Model
         public int Rating { get; set; }
         [Display(Name = "Категория")]
         public int CategoryId { get; set; }
+        [Display(Name = "Кількість")]
+        public int Quantity { get; set; }
 
         /* //public List<ProductImage> Images { get; set; }
          public List<IFormFile> Images { get; set; }//це для фото,які ми будемо додавати на вьюшці едіта.
