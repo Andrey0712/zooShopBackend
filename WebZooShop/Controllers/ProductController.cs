@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using WebZooShop.Data;
@@ -53,6 +54,44 @@ namespace WebZooShop.Controllers
                 });
             }
         }
+        /// <summary>
+        /// Реквізіти
+        /// </summary>
+        /// <returns>Повертає фаил</returns>
+        /// <remarks>Awesomeness!</remarks>
+        /// <response code="200">Реквізіти для оплати</response>
+        /// <response code="400">Has missing/invalid values</response>
+        /// <response code="500">Oops! Can't get list right now</response>
+
+        /*[HttpGet]
+        [Route("getfile/{name}")]
+        public IActionResult DownloadFile([FromRoute] string name)
+        {
+            //Зробити перевірку доступа
+
+            //Determine the Content Type of the File.
+            string contentType = "";
+            string file = Directory.GetCurrentDirectory() +
+                $"/dataRahunok/{name}";
+
+            new FileExtensionContentTypeProvider()
+                .TryGetContentType(file, out contentType);
+
+            return new PhysicalFileResult(file, contentType);
+        }*/
+
+        [HttpGet]
+        [Route("details_for_payment")]
+        public IActionResult DounloudFile()
+        {
+            string contentType = "";
+            string file = Directory.GetCurrentDirectory() +
+                "/dataRahunok/details_for_payment.pdf";
+            new FileExtensionContentTypeProvider()
+                .TryGetContentType(file, out contentType);
+
+            return new PhysicalFileResult(file, contentType);
+        }
 
         /// <summary>
         /// Список продуктів по категоріям
@@ -62,7 +101,7 @@ namespace WebZooShop.Controllers
         /// <response code="200">List products</response>
         /// <response code="400">List products has missing/invalid values</response>
         /// <response code="500">Oops! Can't get  products list right now</response>
-       
+
         [HttpGet]
         [Route("listByCatecory")]
         //public async Task<IActionResult> ListByCatecory([FromBody] SearchByCategoryModel model)

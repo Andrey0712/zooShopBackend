@@ -166,6 +166,16 @@
             <response code="400">List products has missing/invalid values</response>
             <response code="500">Oops! Can't get  products list right now</response>
         </member>
+        <member name="M:WebZooShop.Controllers.ProductController.DounloudFile">
+            <summary>
+            Реквізіти
+            </summary>
+            <returns>Повертає фаил</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Реквізіти для оплати</response>
+            <response code="400">Has missing/invalid values</response>
+            <response code="500">Oops! Can't get list right now</response>
+        </member>
         <member name="M:WebZooShop.Controllers.ProductController.ListByCatecory(System.String)">
             <summary>
             Список продуктів по категоріям

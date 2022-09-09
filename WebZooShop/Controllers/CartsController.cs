@@ -108,13 +108,14 @@ namespace WebZooShop.Controllers
             try
             {
                 string userName = User.Claims.FirstOrDefault().Value;
-                var user = await _userManager.FindByEmailAsync(userName);
-                var cartItem = _context.Carts.SingleOrDefault(x => x.UserId == user.Id && x.Id == id);
-                if (cartItem == null)
+                //var user =  _userManager.FindByEmailAsync(userName);
+                var cart = _context.Carts
+                    .SingleOrDefault(x => x.User.Email == userName && x.ProductId == id);
+                if (cart == null)
                 {
                     return BadRequest(new { message = "Check id!" });
                 }
-                _context.Carts.Remove(cartItem);
+                _context.Carts.Remove(cart);
                 await _context.SaveChangesAsync();
                 return Ok(new { message = "Item of cart deleted" });
             }
@@ -165,8 +166,10 @@ namespace WebZooShop.Controllers
         {
             try
             {
+                string userName = User.Claims.FirstOrDefault().Value;
+                //var user =  _userManager.FindByEmailAsync(userName);
                 var cart = _context.Carts
-                    .SingleOrDefault(x => x.Id == id);
+                    .SingleOrDefault(x => x.User.Email == userName && x.ProductId == id);
                 if (cart != null)
                 {
                     cart.Quantity = cart.Quantity+1;
@@ -190,8 +193,10 @@ namespace WebZooShop.Controllers
         {
             try
             {
+                string userName = User.Claims.FirstOrDefault().Value;
+                //var user =  _userManager.FindByEmailAsync(userName);
                 var cart = _context.Carts
-                    .SingleOrDefault(x => x.Id == id);
+                    .SingleOrDefault(x => x.User.Email == userName && x.ProductId == id);
                 if (cart != null && cart.Quantity>0)
                 {
                     cart.Quantity = cart.Quantity - 1;
