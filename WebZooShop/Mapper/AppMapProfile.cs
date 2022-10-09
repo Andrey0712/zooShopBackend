@@ -76,7 +76,8 @@ namespace WebZooShop.Mapper
                  .ForMember(x => x.Id, opt => opt.MapFrom(x => x.Product.Id))
                .ForMember(x => x.ProductName, opt => opt.MapFrom(x => x.Product.Name))
                .ForMember(x => x.ProductImage, opt => opt.MapFrom(x => $"uploads/{x.Product.StartPhoto}"))
-               .ForMember(x => x.ProductPrice, opt => opt.MapFrom(x => x.Product.Price));
+               .ForMember(x => x.ProductPrice, opt => opt.MapFrom(x => x.Product.Price))
+             .ForMember(x => x.QuantityOLL, opt => opt.MapFrom(x => x.Product.Quantity));
 
 
 

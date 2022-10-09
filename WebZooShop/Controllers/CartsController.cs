@@ -170,7 +170,8 @@ namespace WebZooShop.Controllers
                 //var user =  _userManager.FindByEmailAsync(userName);
                 var cart = _context.Carts
                     .SingleOrDefault(x => x.User.Email == userName && x.ProductId == id);
-                if (cart != null)
+                var prod = _context.Products.SingleOrDefault(x => x.Id == id);
+                if (cart != null && cart.Quantity < prod.Quantity)
                 {
                     cart.Quantity = cart.Quantity+1;
                     _context.SaveChanges();

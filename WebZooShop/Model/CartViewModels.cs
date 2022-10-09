@@ -17,6 +17,7 @@
             public string ProductImage { get; set; }
             public decimal ProductPrice { get; set; }
             public int Quantity { get; set; }
+            public int QuantityOLL { get; set; }
         }
 
         
