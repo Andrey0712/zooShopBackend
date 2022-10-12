@@ -1,0 +1,428 @@
+2022-10-10T16:58:32.3734493+03:00  [INF] Seeding Databases (1466a039)
+2022-10-10T16:58:35.2236264+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:58:38.3858763+03:00  [INF] Executed DbCommand ("351"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-10-10T16:58:39.4604026+03:00  [INF] Executed DbCommand ("150"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-10-10T16:58:39.7368082+03:00  [INF] Executed DbCommand ("155"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-10-10T16:58:39.8200220+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-10-10T16:58:40.4475756+03:00  [INF] Executed DbCommand ("149"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-10-10T16:58:40.6124459+03:00  [INF] Executed DbCommand ("149"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-10-10T16:58:40.7747851+03:00  [INF] Executed DbCommand ("153"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-10-10T16:58:40.9371736+03:00  [INF] Executed DbCommand ("151"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblInventoryStatus\" AS t)" (0723d8ff)
+2022-10-10T16:58:41.0961782+03:00  [INF] Executed DbCommand ("154"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-10-10T16:58:41.2642522+03:00  [INF] Executed DbCommand ("159"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblOrderStatusEntities\" AS t)" (0723d8ff)
+2022-10-10T16:58:41.5664297+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-10-10T16:58:41.5667406+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-10-10T16:58:41.5673723+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-10-10T16:58:41.5677460+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2022-10-10T16:58:52.6833431+03:00 0HMLAOU50LVAF:00000003 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:58:52.8308818+03:00 0HMLAOU50LVAE:00000003 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:58:53.1335822+03:00 0HMLAOU50LVAF:00000003 [INF] Executed DbCommand ("186"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"CategoryId\", t.\"DateCreated\", t.\"Description\", t.\"InventoryStatusId\", t.\"IsDeleted\", t.\"Name\", t.\"Price\", t.\"Quantity\", t.\"Rating\", t.\"StartPhoto\", t0.\"Id\", t0.\"Name\", t1.\"Id\", t1.\"Name\"
+FROM \"tblProducts\" AS t
+LEFT JOIN \"tblCategory\" AS t0 ON t.\"CategoryId\" = t0.\"Id\"
+LEFT JOIN \"tblInventoryStatus\" AS t1 ON t.\"InventoryStatusId\" = t1.\"Id\"" (0723d8ff)
+2022-10-10T16:58:54.0946733+03:00 0HMLAOU50LVAE:00000003 [INF] Executed DbCommand ("186"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T16:58:54.3595512+03:00 0HMLAOU50LVAE:00000003 [INF] Executed DbCommand ("152"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T16:58:58.3358003+03:00 0HMLAOU50LVAE:00000005 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:58:58.5799713+03:00 0HMLAOU50LVAE:00000005 [INF] Executed DbCommand ("233"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T16:58:58.7965195+03:00 0HMLAOU50LVAE:00000005 [INF] Executed DbCommand ("214"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T16:58:58.8965705+03:00 0HMLAOU50LVAF:00000005 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:58:59.1080368+03:00 0HMLAOU50LVAF:00000005 [INF] Executed DbCommand ("194"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T16:58:59.4187538+03:00 0HMLAOU50LVAF:00000005 [INF] Executed DbCommand ("178"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T16:59:01.8161896+03:00 0HMLAOU50LVAF:00000006 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:02.0417449+03:00 0HMLAOU50LVAF:00000006 [INF] Executed DbCommand ("225"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T16:59:02.1911828+03:00 0HMLAOU50LVAF:00000006 [INF] Executed DbCommand ("148"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T16:59:02.7598479+03:00 0HMLAOU50LVAF:00000007 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:02.9057054+03:00 0HMLAOU50LVAF:00000007 [INF] Executed DbCommand ("145"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T16:59:03.0559673+03:00 0HMLAOU50LVAF:00000007 [INF] Executed DbCommand ("150"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T16:59:04.6564017+03:00 0HMLAOU50LVAF:00000009 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:04.8027835+03:00 0HMLAOU50LVAF:00000009 [INF] Executed DbCommand ("145"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T16:59:04.9561246+03:00 0HMLAOU50LVAF:00000009 [INF] Executed DbCommand ("152"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T16:59:09.1714365+03:00 0HMLAOU50LVAF:0000000B [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:09.3233858+03:00 0HMLAOU50LVAF:0000000B [INF] Executed DbCommand ("150"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T16:59:09.4785880+03:00 0HMLAOU50LVAF:0000000B [INF] Executed DbCommand ("153"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T16:59:11.4163104+03:00 0HMLAOU50LVAE:00000007 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:11.5056989+03:00 0HMLAOU50LVAF:0000000C [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:11.5745223+03:00 0HMLAOU50LVAE:00000007 [INF] Executed DbCommand ("157"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T16:59:11.6584744+03:00 0HMLAOU50LVAF:0000000C [INF] Executed DbCommand ("152"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T16:59:11.7229822+03:00 0HMLAOU50LVAE:00000007 [INF] Executed DbCommand ("147"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T16:59:11.8105493+03:00 0HMLAOU50LVAF:0000000C [INF] Executed DbCommand ("150"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T16:59:22.6798838+03:00 0HMLAOU50LVAE:00000009 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:22.8304047+03:00 0HMLAOU50LVAE:00000009 [INF] Executed DbCommand ("149"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T16:59:22.9790524+03:00 0HMLAOU50LVAE:00000009 [INF] Executed DbCommand ("147"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T16:59:25.0274711+03:00 0HMLAOU50LVAE:0000000A [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:25.1847253+03:00 0HMLAOU50LVAE:0000000A [INF] Executed DbCommand ("152"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T16:59:25.3338925+03:00 0HMLAOU50LVAE:0000000A [INF] Executed DbCommand ("147"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T16:59:28.9786464+03:00 0HMLAOU50LVAE:0000000C [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T16:59:29.1287513+03:00 0HMLAOU50LVAE:0000000C [INF] Executed DbCommand ("149"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:16.1738783+03:00 0HMLAOU50LVAG:00000003 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:16.3226697+03:00 0HMLAOU50LVAG:00000003 [INF] Executed DbCommand ("147"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:02:16.4748048+03:00 0HMLAOU50LVAG:00000003 [INF] Executed DbCommand ("150"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:02:21.7790654+03:00 0HMLAOU50LVAG:00000005 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:21.9286015+03:00 0HMLAOU50LVAG:00000005 [INF] Executed DbCommand ("149"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:22.0997149+03:00 0HMLAOU50LVAG:00000005 [INF] Executed DbCommand ("149"ms) [Parameters=["@__8__locals1_id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"CategoryId\", t.\"DateCreated\", t.\"Description\", t.\"InventoryStatusId\", t.\"IsDeleted\", t.\"Name\", t.\"Price\", t.\"Quantity\", t.\"Rating\", t.\"StartPhoto\"
+FROM \"tblProducts\" AS t
+WHERE t.\"Id\" = @__8__locals1_id_0
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:22.2857700+03:00 0HMLAOU50LVAG:00000005 [INF] Executed DbCommand ("161"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T17:02:29.9900204+03:00 0HMLAOU50LVAG:00000007 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:30.1433486+03:00 0HMLAOU50LVAG:00000007 [INF] Executed DbCommand ("152"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:02:30.2907599+03:00 0HMLAOU50LVAG:00000007 [INF] Executed DbCommand ("146"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:02:32.3253465+03:00 0HMLAOU50LVAG:00000008 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:32.4764371+03:00 0HMLAOU50LVAG:00000008 [INF] Executed DbCommand ("150"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:02:32.6236577+03:00 0HMLAOU50LVAG:00000008 [INF] Executed DbCommand ("146"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:02:33.1668243+03:00 0HMLAOU50LVAG:0000000A [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:33.3179386+03:00 0HMLAOU50LVAG:0000000A [INF] Executed DbCommand ("150"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:33.4673716+03:00 0HMLAOU50LVAG:0000000A [INF] Executed DbCommand ("148"ms) [Parameters=["@__8__locals1_id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"CategoryId\", t.\"DateCreated\", t.\"Description\", t.\"InventoryStatusId\", t.\"IsDeleted\", t.\"Name\", t.\"Price\", t.\"Quantity\", t.\"Rating\", t.\"StartPhoto\"
+FROM \"tblProducts\" AS t
+WHERE t.\"Id\" = @__8__locals1_id_0
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:33.6173132+03:00 0HMLAOU50LVAG:0000000A [INF] Executed DbCommand ("148"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T17:02:41.0438929+03:00 0HMLAOU50LVAG:0000000C [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:41.1944566+03:00 0HMLAOU50LVAG:0000000C [INF] Executed DbCommand ("149"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:02:41.3450488+03:00 0HMLAOU50LVAG:0000000C [INF] Executed DbCommand ("149"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:02:42.5038849+03:00 0HMLAOU50LVAH:00000003 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:42.6505835+03:00 0HMLAOU50LVAH:00000003 [INF] Executed DbCommand ("146"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:42.8013851+03:00 0HMLAOU50LVAH:00000003 [INF] Executed DbCommand ("150"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T17:02:43.3765482+03:00 0HMLAOU50LVAG:0000000D [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:43.5270870+03:00 0HMLAOU50LVAG:0000000D [INF] Executed DbCommand ("149"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:02:43.6784963+03:00 0HMLAOU50LVAG:0000000D [INF] Executed DbCommand ("150"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:02:47.4932492+03:00 0HMLAOU50LVAG:0000000E [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:47.7410324+03:00 0HMLAOU50LVAG:0000000E [INF] Executed DbCommand ("246"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:02:47.9088455+03:00 0HMLAOU50LVAG:0000000E [INF] Executed DbCommand ("167"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T17:02:59.0754560+03:00 0HMLAOU50LVAG:00000010 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:02:59.2243752+03:00 0HMLAOU50LVAG:00000010 [INF] Executed DbCommand ("147"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:02:59.3758577+03:00 0HMLAOU50LVAG:00000010 [INF] Executed DbCommand ("150"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:03:01.4050605+03:00 0HMLAOU50LVAG:00000011 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:03:01.5526217+03:00 0HMLAOU50LVAG:00000011 [INF] Executed DbCommand ("146"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:03:01.7032925+03:00 0HMLAOU50LVAG:00000011 [INF] Executed DbCommand ("149"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:03:30.9235998+03:00  [INF] Seeding Databases (1466a039)
+2022-10-10T17:03:32.6652859+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:03:36.8313036+03:00  [INF] Executed DbCommand ("367"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-10-10T17:03:37.8979270+03:00  [INF] Executed DbCommand ("155"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-10-10T17:03:38.0961577+03:00  [INF] Executed DbCommand ("152"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-10-10T17:03:38.1607122+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-10-10T17:03:38.6681221+03:00  [INF] Executed DbCommand ("147"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-10-10T17:03:38.8359846+03:00  [INF] Executed DbCommand ("147"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-10-10T17:03:38.9936689+03:00  [INF] Executed DbCommand ("148"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2022-10-10T17:03:39.1454510+03:00  [INF] Executed DbCommand ("147"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblInventoryStatus\" AS t)" (0723d8ff)
+2022-10-10T17:03:39.3003845+03:00  [INF] Executed DbCommand ("150"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2022-10-10T17:03:39.4559028+03:00  [INF] Executed DbCommand ("147"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblOrderStatusEntities\" AS t)" (0723d8ff)
+2022-10-10T17:03:39.6302275+03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-10-10T17:03:39.6304338+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-10-10T17:03:39.6305071+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-10-10T17:03:39.6305556+03:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2022-10-10T17:03:51.0259319+03:00 0HMLAP0TR10JQ:00000003 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:03:51.3742674+03:00 0HMLAP0TR10JQ:00000003 [INF] Executed DbCommand ("168"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:03:51.6415027+03:00 0HMLAP0TR10JQ:00000003 [INF] Executed DbCommand ("147"ms) [Parameters=["@__8__locals1_id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"CategoryId\", t.\"DateCreated\", t.\"Description\", t.\"InventoryStatusId\", t.\"IsDeleted\", t.\"Name\", t.\"Price\", t.\"Quantity\", t.\"Rating\", t.\"StartPhoto\"
+FROM \"tblProducts\" AS t
+WHERE t.\"Id\" = @__8__locals1_id_0
+LIMIT 2" (0723d8ff)
+2022-10-10T17:03:52.0916163+03:00 0HMLAP0TR10JQ:00000003 [INF] Executed DbCommand ("156"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""UPDATE \"tblCartEntities\" SET \"Quantity\" = @p0
+WHERE \"Id\" = @p1;" (0723d8ff)
+2022-10-10T17:04:05.2582244+03:00 0HMLAP0TR10JQ:00000005 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:05.5128864+03:00 0HMLAP0TR10JQ:00000005 [INF] Executed DbCommand ("217"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:04:05.8414081+03:00 0HMLAP0TR10JQ:00000005 [INF] Executed DbCommand ("153"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:04:08.0398014+03:00 0HMLAP0TR10JQ:00000006 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:08.2049356+03:00 0HMLAP0TR10JQ:00000006 [INF] Executed DbCommand ("147"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:04:08.4440260+03:00 0HMLAP0TR10JQ:00000006 [INF] Executed DbCommand ("237"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:04:08.8520398+03:00 0HMLAP0TR10JQ:00000008 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:09.0798469+03:00 0HMLAP0TR10JQ:00000008 [INF] Executed DbCommand ("227"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:04:23.3827298+03:00 0HMLAP0TR10JQ:0000000A [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:23.5303903+03:00 0HMLAP0TR10JQ:0000000A [INF] Executed DbCommand ("147"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:04:39.7733173+03:00 0HMLAP0TR10JQ:0000000C [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:39.9218094+03:00 0HMLAP0TR10JQ:0000000C [INF] Executed DbCommand ("148"ms) [Parameters=["@__userName_0='?', @__8__locals1_id_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"AspNetUsers\" AS a ON t.\"UserId\" = a.\"Id\"
+WHERE (a.\"Email\" = @__userName_0) AND (t.\"ProductId\" = @__8__locals1_id_1)
+LIMIT 2" (0723d8ff)
+2022-10-10T17:04:40.2462139+03:00 0HMLAP0TR10JQ:0000000C [INF] Executed DbCommand ("147"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"tblCartEntities\"
+WHERE \"Id\" = @p0;" (0723d8ff)
+2022-10-10T17:04:45.4673620+03:00 0HMLAP0TR10JQ:0000000E [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:45.6248550+03:00 0HMLAP0TR10JQ:0000000E [INF] Executed DbCommand ("156"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:04:45.7732903+03:00 0HMLAP0TR10JQ:0000000E [INF] Executed DbCommand ("147"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:04:47.8036005+03:00 0HMLAP0TR10JQ:0000000F [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:04:47.9525832+03:00 0HMLAP0TR10JQ:0000000F [INF] Executed DbCommand ("148"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:04:48.1025955+03:00 0HMLAP0TR10JQ:0000000F [INF] Executed DbCommand ("148"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
+2022-10-10T17:05:29.2288908+03:00 0HMLAP0TR10JQ:00000011 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-10-10T17:05:29.3801798+03:00 0HMLAP0TR10JQ:00000011 [INF] Executed DbCommand ("149"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2022-10-10T17:05:29.5313788+03:00 0HMLAP0TR10JQ:00000011 [INF] Executed DbCommand ("150"ms) [Parameters=["@__user_Id_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t.\"Id\", t.\"DateCreated\", t.\"IsDeleted\", t.\"ProductId\", t.\"Quantity\", t.\"UserId\", t0.\"Id\", t0.\"CategoryId\", t0.\"DateCreated\", t0.\"Description\", t0.\"InventoryStatusId\", t0.\"IsDeleted\", t0.\"Name\", t0.\"Price\", t0.\"Quantity\", t0.\"Rating\", t0.\"StartPhoto\"
+FROM \"tblCartEntities\" AS t
+INNER JOIN \"tblProducts\" AS t0 ON t.\"ProductId\" = t0.\"Id\"
+WHERE t.\"UserId\" = @__user_Id_0" (0723d8ff)
