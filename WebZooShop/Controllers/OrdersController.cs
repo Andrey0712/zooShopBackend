@@ -87,12 +87,11 @@ namespace WebZooShop.Controllers
                     item.OrderId = entity.Id;
                     item.Suma = item.BuyPrice * item.Quantity;
                     _context.OrderItems.Add(item);
+                    //вносимо зміни в базу товарних позицій по кількості товару 
                     var prod =_context.Products.FirstOrDefault(x=>x.Id== item.ProductId);
                     var prodNewQuantity = prod.Quantity - item.Quantity;
                     prod.Quantity = prodNewQuantity;
-                    //_context.Products.Add(prod);
-                    int a = 1;
-                   
+                    
                 }
                  _context.SaveChanges();
 
