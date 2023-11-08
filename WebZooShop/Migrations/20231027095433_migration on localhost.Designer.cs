@@ -12,8 +12,8 @@ using WebZooShop.Data;
 namespace WebZooShop.Migrations
 {
     [DbContext(typeof(AppEFContext))]
-    [Migration("20220901130724_all tbl")]
-    partial class alltbl
+    [Migration("20231027095433_migration on localhost")]
+    partial class migrationonlocalhost
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

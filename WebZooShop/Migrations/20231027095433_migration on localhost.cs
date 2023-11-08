@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WebZooShop.Migrations
 {
-    public partial class alltbl : Migration
+    public partial class migrationonlocalhost : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
