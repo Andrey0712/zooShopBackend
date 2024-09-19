@@ -1,0 +1,90 @@
+2024-02-23T22:57:21.2388370+02:00  [INF] Seeding Databases (1466a039)
+2024-02-23T22:57:28.6708415+02:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2024-02-23T22:57:32.8188217+02:00  [INF] Executed DbCommand ("221"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2024-02-23T22:57:33.0017659+02:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2024-02-23T22:57:33.0704065+02:00  [INF] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2024-02-23T22:57:33.1345522+02:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2024-02-23T22:57:34.1070147+02:00  [INF] Executed DbCommand ("135"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2024-02-23T22:57:34.1378465+02:00  [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2024-02-23T22:57:34.1563615+02:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblCategory\" AS t)" (0723d8ff)
+2024-02-23T22:57:34.1871121+02:00  [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblInventoryStatus\" AS t)" (0723d8ff)
+2024-02-23T22:57:34.2154086+02:00  [INF] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblProducts\" AS t)" (0723d8ff)
+2024-02-23T22:57:34.2245758+02:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"tblOrderStatusEntities\" AS t)" (0723d8ff)
+2024-02-23T22:57:34.8112648+02:00  [INF] Now listening on: "http://localhost:5050" (d826f4b8)
+2024-02-23T22:57:34.8538963+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2024-02-23T22:57:34.9647783+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2024-02-23T22:57:34.9818305+02:00  [INF] Content root path: "D:\zooshop\WebZooShop\WebZooShop\" (b5d60022)
+2024-02-23T22:59:17.3416379+02:00 0HN1KM87PA9OV:00000002 [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2024-02-23T22:59:17.9330471+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("173"ms) [Parameters=["@__normalizedEmail_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedEmail\" = @__normalizedEmail_0
+LIMIT 2" (0723d8ff)
+2024-02-23T22:59:18.2365517+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("15"ms) [Parameters=["@__normalizedName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2024-02-23T22:59:18.4209208+02:00 0HN1KM87PA9OV:00000002 [WRN] Role null validation failed: "DuplicateRoleName". (60d773c7)
+2024-02-23T22:59:18.5354383+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("11"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2024-02-23T22:59:19.3871745+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("237"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?', @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (DbType = Boolean), @p13='?', @p14='?', @p15='?' (DbType = Boolean), @p16='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"AspNetUsers\" (\"AccessFailedCount\", \"ConcurrencyStamp\", \"Email\", \"EmailConfirmed\", \"FirstName\", \"LockoutEnabled\", \"LockoutEnd\", \"NormalizedEmail\", \"NormalizedUserName\", \"PasswordHash\", \"Phone\", \"PhoneNumber\", \"PhoneNumberConfirmed\", \"SecondName\", \"SecurityStamp\", \"TwoFactorEnabled\", \"UserName\")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16)
+RETURNING \"Id\";" (0723d8ff)
+2024-02-23T22:59:19.6049320+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedRoleName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedRoleName_0
+LIMIT 2" (0723d8ff)
+2024-02-23T22:59:19.7410848+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("57"ms) [Parameters=["@__p_0='?' (DbType = Int64), @__p_1='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"UserId\", a.\"RoleId\"
+FROM \"AspNetUserRoles\" AS a
+WHERE (a.\"UserId\" = @__p_0) AND (a.\"RoleId\" = @__p_1)
+LIMIT 1" (0723d8ff)
+2024-02-23T22:59:19.8070179+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("34"ms) [Parameters=["@__normalizedRoleName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"ConcurrencyStamp\", a.\"Name\", a.\"NormalizedName\"
+FROM \"AspNetRoles\" AS a
+WHERE a.\"NormalizedName\" = @__normalizedRoleName_0
+LIMIT 2" (0723d8ff)
+2024-02-23T22:59:19.8869937+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT a.\"Id\", a.\"AccessFailedCount\", a.\"ConcurrencyStamp\", a.\"Email\", a.\"EmailConfirmed\", a.\"FirstName\", a.\"LockoutEnabled\", a.\"LockoutEnd\", a.\"NormalizedEmail\", a.\"NormalizedUserName\", a.\"PasswordHash\", a.\"Phone\", a.\"PhoneNumber\", a.\"PhoneNumberConfirmed\", a.\"SecondName\", a.\"SecurityStamp\", a.\"TwoFactorEnabled\", a.\"UserName\"
+FROM \"AspNetUsers\" AS a
+WHERE a.\"NormalizedUserName\" = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2024-02-23T22:59:20.1412323+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("200"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p19='?' (DbType = Int64), @p2='?' (DbType = Int32), @p3='?', @p20='?', @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?' (DbType = Boolean), @p15='?', @p16='?', @p17='?' (DbType = Boolean), @p18='?'"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"AspNetUserRoles\" (\"RoleId\", \"UserId\")
+VALUES (@p0, @p1);
+UPDATE \"AspNetUsers\" SET \"AccessFailedCount\" = @p2, \"ConcurrencyStamp\" = @p3, \"Email\" = @p4, \"EmailConfirmed\" = @p5, \"FirstName\" = @p6, \"LockoutEnabled\" = @p7, \"LockoutEnd\" = @p8, \"NormalizedEmail\" = @p9, \"NormalizedUserName\" = @p10, \"PasswordHash\" = @p11, \"Phone\" = @p12, \"PhoneNumber\" = @p13, \"PhoneNumberConfirmed\" = @p14, \"SecondName\" = @p15, \"SecurityStamp\" = @p16, \"TwoFactorEnabled\" = @p17, \"UserName\" = @p18
+WHERE \"Id\" = @p19 AND \"ConcurrencyStamp\" = @p20;" (0723d8ff)
+2024-02-23T22:59:42.9710293+02:00 0HN1KM87PA9OV:00000002 [INF] Executed DbCommand ("31"ms) [Parameters=["@__userId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT a0.\"Name\"
+FROM \"AspNetUserRoles\" AS a
+INNER JOIN \"AspNetRoles\" AS a0 ON a.\"RoleId\" = a0.\"Id\"
+WHERE a.\"UserId\" = @__userId_0" (0723d8ff)
